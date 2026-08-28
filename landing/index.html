@@ -6,7 +6,7 @@
 <meta name="color-scheme" content="dark">
 <meta name="theme-color" content="#0a0a0a">
 <title>MCP OAuth Connect — Greg Freda</title>
-<meta name="description" content="Diagnose MCP OAuth 2.0 so claude.ai, Cursor, and Grok actually connect. Plugin plus allowlist-gated FastMCP template.">
+<meta name="description" content="Diagnose MCP OAuth 2.0 so claude.ai, Cursor, and Grok actually connect. $99 one-time allowlist FastMCP template.">
 <link rel="canonical" href="https://gregfredabytes.com/mcp-oauth-connect/">
 <link rel="icon" href="/favicon.ico" sizes="48x48">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -44,23 +44,37 @@
   }
   ul { margin: 0.75rem 0 0.75rem 1.2rem; }
   li { margin: 0.25rem 0; }
+  .buy {
+    display: inline-block;
+    margin: 1.1rem 0 0.4rem;
+    padding: 0.65rem 1.1rem;
+    background: var(--accent);
+    color: #04150c;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 8px;
+    letter-spacing: -0.02em;
+  }
+  .buy:hover { filter: brightness(1.08); }
 </style>
 </head>
 <body>
   <main>
     <p class="dim"><a href="/">Greg Freda</a> · operator product</p>
     <h1>MCP OAuth Connect</h1>
-    <p>Static bearer middleware passes curl and dies in claude.ai Connectors, Claude Desktop, Cursor, and Grok. This plugin diagnoses the miss and ships the DCR template those UIs complete.</p>
+    <p>Static bearer middleware passes curl and dies in claude.ai Connectors, Claude Desktop, Cursor, and Grok. This plugin diagnoses the miss. The paid extract is the allowlist-gated FastMCP provider that already survives those four hosts on a live origin.</p>
     <pre>/plugin marketplace add GFB2026/mcp-oauth-connect
 /plugin install mcp-oauth-connect@mcp-oauth-connect
 
 python skills/mcp-oauth-connect/scripts/diagnose.py https://mcp.example.com</pre>
     <ul>
-      <li>Free: diagnose skill, quad-host manifests (Claude · Grok · Cursor · Codex).</li>
-      <li>Paid: <code>template/</code> — allowlist-gated FastMCP OAuth. License key; not a Cursor Marketplace charge.</li>
+      <li>Free: diagnose skill (PRM, S256, POST /mcp, absolute resource_metadata, no cross-host 3xx), quad-host manifests.</li>
+      <li>Paid: <code>template/</code> — $99 one-time, 365-day key. Not a Cursor Marketplace charge.</li>
     </ul>
+    <p><a class="buy" href="https://buy.stripe.com/4gM8wH50u7Jt8Cd6mD3Nm0k">Buy template — $99</a></p>
+    <p class="dim">Payment Link on the GFB Stripe account. After pay, you get a thank-you page; the key is issued off-catalog.</p>
     <p><a href="https://github.com/GFB2026/mcp-oauth-connect">github.com/GFB2026/mcp-oauth-connect</a></p>
-    <p class="dim">Not the ILI fleet. Not gregops-plugins. Ping-only template — no host shell.</p>
+    <p class="dim">Not the ILI fleet. Not gregops-plugins. Ping-only template — no host shell. Auto-approve remains; do not wire host tools without reading the template README.</p>
   </main>
 </body>
 </html>

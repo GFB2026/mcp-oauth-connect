@@ -1,5 +1,10 @@
 """Allowlist-gated OAuth provider for public MCP servers.
 
+SECURITY: allowlist DCR closed attacker callbacks, not consent. Auto-approve
+still mints a code to any client that hits /register + /authorize with an
+allowlisted redirect. Ping-only is acceptable. Host tools are not — read
+template/README.md before wiring shell, mail, or files.
+
 claude.ai / Claude Desktop / Cursor / Grok use RFC 7591 dynamic client
 registration. There is no stable official client_id. The stable value is the
 redirect_uri each host posts the auth code back to. Register and authorize
