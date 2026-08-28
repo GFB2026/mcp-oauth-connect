@@ -9,7 +9,7 @@ The plugin skill and diagnose script are free. `template/` is the paid product.
 1. Set `MCP_OAUTH_LICENSE_SECRET` on the seller machine only.
 2. `python license/issue.py buyer@example.com 365`
 3. Buyer sets `MCP_OAUTH_LICENSE_KEY` to that value (or `MCP_OAUTH_DEV=1` while building).
-4. Greg creates a Stripe Payment Link when ready to take money — that is a money gate, not this file.
+4. Cash register already on the stack: GFB Stripe via `gfb-rescue` (`STRIPE_SECRET_KEY` + `POST /api/checkout` with `sku`). Add `STRIPE_PRICE_MCP_OAUTH` / `mcp_oauth_connect` to that map when the live Price exists. Do not open a second Stripe account. Studio checkout stays on gfbytes.com/care; this SKU is operator product.
 
 ## Formats
 
