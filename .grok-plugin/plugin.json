@@ -1,11 +1,11 @@
 {
   "name": "mcp-oauth-connect",
-  "description": "Diagnose and stand up MCP OAuth 2.0 / DCR so claude.ai, Claude Desktop, Cursor, and Grok actually connect.",
-  "version": "0.1.0",
+  "description": "Diagnose MCP OAuth 2.0 so claude.ai, Claude Desktop, Cursor, and Grok Connectors actually attach.",
+  "version": "0.2.0",
   "author": {
     "name": "Greg Freda",
     "email": "greg@gregfredabytes.com"
   },
   "homepage": "https://gregfredabytes.com/mcp-oauth-connect/",
-  "keywords": ["mcp", "oauth", "dcr", "claude", "cursor", "grok", "connectors"]
+  "keywords": ["mcp-oauth-connect", "gregfredabytes", "gfb mcp oauth"]
 }

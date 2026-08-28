@@ -1,6 +1,6 @@
 {
   "name": "mcp-oauth-connect",
-  "description": "MCP OAuth Connect — diagnose and stand up connectors that actually connect.",
+  "description": "MCP OAuth Connect — diagnose connectors that actually connect.",
   "owner": {
     "name": "Greg Freda",
     "email": "greg@gregfredabytes.com"
@@ -9,8 +9,8 @@
     {
       "name": "mcp-oauth-connect",
       "source": ".",
-      "description": "Diagnose MCP OAuth 2.0 / DCR failures and ship an allowlist-gated FastMCP template.",
-      "version": "0.1.0"
+      "description": "Diagnose MCP OAuth 2.0 / DCR failures for claude.ai, Desktop, Cursor, and Grok.",
+      "version": "0.2.0"
     }
   ]
 }
