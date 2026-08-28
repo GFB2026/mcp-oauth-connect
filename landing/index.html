@@ -19,13 +19,13 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MCP OAuth Connect">
 <meta name="twitter:description" content="Curl works. The Connectors UI does not.">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:; connect-src 'self' https://cloudflareinsights.com; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:; connect-src 'self' https://cloudflareinsights.com https://mcp.gregfredabytes.com; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests">
 <meta http-equiv="X-Content-Type-Options" content="nosniff">
 <meta name="permissions-policy" content="accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()">
 <link rel="icon" href="/favicon.ico" sizes="48x48">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="stylesheet" href="node-surface.css?v=2.11.0-c2">
+<link rel="stylesheet" href="node-surface.css?v=2.11.0-demo">
 </head>
 <body>
 
@@ -54,19 +54,51 @@
       <p class="tagline">Curl works. The Connectors UI does not.</p>
       <p class="for-whom">claude.ai · Desktop · Cursor · Grok</p>
       <nav class="offers">
-        <a class="nav-link" href="#diagnose">Diagnose <b>free</b></a>
+        <a class="nav-link" href="#install">Install</a>
+        <a class="nav-link" href="#demo">Demo</a>
         <a class="nav-link" href="https://buy.stripe.com/4gM8wH50u7Jt8Cd6mD3Nm0k">Buy <b>$99</b></a>
-        <a class="nav-link" href="https://github.com/GFB2026/mcp-oauth-connect">Source</a>
+        <a class="nav-link" href="https://github.com/GFB2026/mcp-oauth-connect">GitHub</a>
       </nav>
     </div>
-    <pre class="cmd" id="diagnose">/plugin marketplace add GFB2026/mcp-oauth-connect
-/plugin install mcp-oauth-connect@mcp-oauth-connect
 
-python skills/mcp-oauth-connect/scripts/diagnose.py https://mcp.example.com</pre>
+    <nav class="hosts" id="install" role="tablist" aria-label="Install">
+      <button type="button" role="tab" aria-selected="true" aria-controls="install-cmd" data-host="claude">Claude Code</button>
+      <button type="button" role="tab" aria-selected="false" aria-controls="install-cmd" data-host="grok">Grok</button>
+      <button type="button" role="tab" aria-selected="false" aria-controls="install-cmd" data-host="git">Git</button>
+    </nav>
+    <div class="cmd-head">
+      <span>Install · diagnose free</span>
+      <button type="button" id="copy-install">Copy</button>
+    </div>
+    <pre class="cmd" id="install-cmd" role="tabpanel"></pre>
+
+    <label class="probe" id="demo">
+      <span>URL</span>
+      <input id="mcp-url" type="url" spellcheck="false" autocomplete="off" value="https://mcp.gregfredabytes.com">
+    </label>
+    <div class="cmd-head">
+      <span>Demo · mcp.gregfredabytes.com</span>
+      <button type="button" id="probe">Probe live</button>
+    </div>
+    <pre class="cmd" id="demo-out" aria-live="polite"></pre>
+
     <dl class="sheet">
       <div>
         <dt>Free</dt>
-        <dd>Diagnose skill. PRM, S256, POST /mcp, absolute resource_metadata, no cross-host 3xx. MIT. That is the acquisition path.</dd>
+        <dd>Diagnose skill. PRM, S256, POST /mcp, absolute resource_metadata, no cross-host 3xx. MIT. Acquisition path is GitHub, not a marketplace charge.</dd>
+      </div>
+      <div>
+        <dt>GitHub</dt>
+        <dd>
+          <a href="https://github.com/GFB2026/mcp-oauth-connect">GFB2026/mcp-oauth-connect</a>
+          · <a href="https://github.com/GFB2026/mcp-oauth-connect/blob/master/skills/mcp-oauth-connect/scripts/diagnose.py">diagnose.py</a>
+          · <a href="https://github.com/GFB2026/mcp-oauth-connect/blob/master/README.md">README</a>
+          · <a href="https://github.com/GFB2026/mcp-oauth-connect/blob/master/template/README.md">template/</a>
+        </dd>
+      </div>
+      <div>
+        <dt>Attach</dt>
+        <dd>claude.ai Connectors: URL only. Desktop: Type Web, Custom — JSON <code>url</code> is stripped. Cursor <code>mcp.json</code>: url, no bearer. Grok: loopback <code>/callback</code>, public client, no secret.</dd>
       </div>
       <div>
         <dt>Paid</dt>
@@ -78,11 +110,11 @@ python skills/mcp-oauth-connect/scripts/diagnose.py https://mcp.example.com</pre
       </div>
       <div>
         <dt>Proof</dt>
-        <dd>Same provider already survives claude.ai, Desktop, Cursor, and Grok at mcp.gregfredabytes.com.</dd>
+        <dd>Same provider already survives claude.ai, Desktop, Cursor, and Grok at mcp.gregfredabytes.com. Probe live runs discovery on that origin. Full GET/POST /mcp checks are the Python script — browsers cannot read 401 WWW-Authenticate (no CORS on the challenge).</dd>
       </div>
       <div>
         <dt>Not</dt>
-        <dd>ILI fleet. Host shell. Care intake. Monthly. A second Stripe identity.</dd>
+        <dd>ILI fleet. Host shell. Care intake. Monthly. A second Stripe identity. A hosted diagnose tenant.</dd>
       </div>
     </dl>
   </section>
@@ -104,6 +136,7 @@ python skills/mcp-oauth-connect/scripts/diagnose.py https://mcp.example.com</pre
 </main>
 
 <script src="field.js?v=2.11.0-cartouche" defer></script>
+<script src="surface.js?v=2.11.0-demo" defer></script>
 <script src="/care/agent-shell.js" defer></script>
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"17ad6bc20a1f40edbd808a48d3454100"}' crossorigin="anonymous"></script>
 </body>
