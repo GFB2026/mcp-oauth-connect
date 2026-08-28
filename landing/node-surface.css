@@ -95,7 +95,7 @@ body {
 .center {
   align-self: start;
   justify-self: center;
-  width: min(42rem, 100%);
+  width: min(46rem, 100%);
   text-align: center;
   display: grid;
   gap: 0;
@@ -210,6 +210,100 @@ a.nav-link:hover {
 }
 .offers a b { color: var(--fg); font-weight: 500; }
 
+.hosts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px 32px;
+  justify-content: center;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-top: 36px;
+  width: 100%;
+}
+.hosts button {
+  appearance: none;
+  background: none;
+  border: 0;
+  border-bottom: 1px solid transparent;
+  color: var(--dim);
+  font: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  cursor: pointer;
+  padding: 0 0 2px;
+}
+.hosts button:hover { color: var(--fg); }
+.hosts button[aria-selected="true"] {
+  color: var(--fg);
+  border-bottom-color: var(--accent);
+}
+
+.cmd-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  width: 100%;
+  margin-top: 16px;
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--dimmer);
+}
+.cmd-head button {
+  appearance: none;
+  background: none;
+  border: 0;
+  border-bottom: 1px solid transparent;
+  color: var(--dim);
+  font: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  cursor: pointer;
+  padding: 0;
+}
+.cmd-head button:hover {
+  color: var(--fg);
+  border-bottom-color: var(--accent);
+}
+.cmd-head button:disabled { color: var(--dimmer); cursor: wait; }
+
+.probe {
+  display: grid;
+  grid-template-columns: 7.2rem 1fr;
+  gap: 14px;
+  align-items: center;
+  width: 100%;
+  margin-top: 28px;
+  font-family: var(--mono);
+  font-size: 11px;
+  text-align: left;
+}
+.probe span {
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--dimmer);
+  font-size: 9.5px;
+}
+.probe input {
+  appearance: none;
+  width: 100%;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--rule);
+  color: var(--fg);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.03em;
+  padding: 6px 0;
+  border-radius: 0;
+  outline: none;
+}
+.probe input:focus { border-bottom-color: var(--accent); }
+
 .cmd {
   font-family: var(--mono);
   font-size: 11px;
@@ -226,6 +320,7 @@ a.nav-link:hover {
   width: 100%;
   text-align: left;
 }
+.cmd-head + .cmd { margin-top: 8px; }
 
 .sheet {
   margin-top: 32px;
@@ -262,6 +357,11 @@ a.nav-link:hover {
 .sheet a:hover {
   border-bottom-color: var(--accent);
 }
+.sheet code {
+  font-family: inherit;
+  font-size: inherit;
+  color: var(--dim);
+}
 
 .bottom {
   display: flex;
@@ -290,6 +390,7 @@ a.nav-link:hover {
   .bottom { flex-direction: column; align-items: flex-start; }
   .bottom .r { text-align: left; margin-left: 0; }
   .sheet > div { grid-template-columns: 1fr; gap: 6px; }
+  .probe { grid-template-columns: 1fr; gap: 6px; }
   .wordmark { white-space: normal; text-align: center; }
   .cartouche { max-width: 100%; }
 }
