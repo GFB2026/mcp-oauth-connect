@@ -6,75 +6,105 @@
 <meta name="color-scheme" content="dark">
 <meta name="theme-color" content="#0a0a0a">
 <title>MCP OAuth Connect — Greg Freda</title>
-<meta name="description" content="Diagnose MCP OAuth 2.0 so claude.ai, Cursor, and Grok actually connect. $99 one-time allowlist FastMCP template.">
+<meta name="description" content="Diagnose MCP OAuth 2.0 so claude.ai, Desktop, Cursor, and Grok actually connect. $99 one-time FastMCP extract.">
+<meta name="author" content="Greg Freda">
+<meta name="robots" content="index,follow">
 <link rel="canonical" href="https://gregfredabytes.com/mcp-oauth-connect/">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta property="og:title" content="MCP OAuth Connect">
+<meta property="og:description" content="Curl works. The Connectors UI does not.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://gregfredabytes.com/mcp-oauth-connect/">
+<meta property="og:site_name" content="Greg Freda">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MCP OAuth Connect">
+<meta name="twitter:description" content="Curl works. The Connectors UI does not.">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:; connect-src 'self' https://cloudflareinsights.com; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta name="permissions-policy" content="accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()">
 <link rel="icon" href="/favicon.ico" sizes="48x48">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<style>
-  :root {
-    --bg: #0a0a0a;
-    --fg: #e6e6e6;
-    --dim: #6a6a6a;
-    --accent: #22b573;
-    --rule: rgba(255,255,255,0.06);
-    --mono: ui-monospace, "SF Mono", Menlo, Monaco, Consolas, monospace;
-    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    background: var(--bg);
-    color: var(--fg);
-    font-family: var(--sans);
-    line-height: 1.55;
-    -webkit-font-smoothing: antialiased;
-  }
-  main { max-width: 40rem; margin: 0 auto; padding: 3.5rem 1.25rem 5rem; }
-  a { color: var(--accent); }
-  .dim { color: var(--dim); font-size: 0.85rem; letter-spacing: 0.04em; }
-  h1 { font-size: 1.6rem; font-weight: 600; letter-spacing: -0.03em; margin: 0.4rem 0 1rem; }
-  p { margin: 0.75rem 0; }
-  pre, code { font-family: var(--mono); font-size: 0.82rem; }
-  pre {
-    background: #111;
-    border: 1px solid var(--rule);
-    border-radius: 8px;
-    padding: 0.9rem 1rem;
-    overflow-x: auto;
-    margin: 1rem 0;
-  }
-  ul { margin: 0.75rem 0 0.75rem 1.2rem; }
-  li { margin: 0.25rem 0; }
-  .buy {
-    display: inline-block;
-    margin: 1.1rem 0 0.4rem;
-    padding: 0.65rem 1.1rem;
-    background: var(--accent);
-    color: #04150c;
-    font-weight: 600;
-    text-decoration: none;
-    border-radius: 8px;
-    letter-spacing: -0.02em;
-  }
-  .buy:hover { filter: brightness(1.08); }
-</style>
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="node-surface.css?v=2.11.0-c2">
 </head>
 <body>
-  <main>
-    <p class="dim"><a href="/">Greg Freda</a> · operator product</p>
-    <h1>MCP OAuth Connect</h1>
-    <p>Static bearer middleware passes curl and dies in claude.ai Connectors, Claude Desktop, Cursor, and Grok. This plugin diagnoses the miss. The paid extract is the allowlist-gated FastMCP provider that already survives those four hosts on a live origin.</p>
-    <pre>/plugin marketplace add GFB2026/mcp-oauth-connect
+
+<canvas id="field" aria-hidden="true"></canvas>
+<div class="grain" aria-hidden="true"></div>
+
+<main class="stage">
+  <header class="top">
+    <a class="brand" href="/">
+      <span class="mark" aria-hidden="true"></span>
+      <span>GREG · NODE-01</span>
+    </a>
+    <div class="meta">
+      <span><span class="pulse-dot"></span><b id="clock">00:00:00 UTC</b></span>
+      <span>BUILD <b id="build">2.11.0</b></span>
+      <span>UPTIME <b id="uptime">0s</b></span>
+    </div>
+  </header>
+
+  <section class="center" aria-label="MCP OAuth Connect">
+    <figure class="cartouche" aria-label="MCP OAuth Connect">
+      <h1 class="wordmark">MCP · OAuth · Connect</h1>
+    </figure>
+    <p class="status"><span class="dot" aria-hidden="true"></span><span>Operator product</span></p>
+    <div class="lane">
+      <p class="tagline">Curl works. The Connectors UI does not.</p>
+      <p class="for-whom">claude.ai · Desktop · Cursor · Grok</p>
+      <nav class="offers">
+        <a class="nav-link" href="#diagnose">Diagnose <b>free</b></a>
+        <a class="nav-link" href="https://buy.stripe.com/4gM8wH50u7Jt8Cd6mD3Nm0k">Buy <b>$99</b></a>
+        <a class="nav-link" href="https://github.com/GFB2026/mcp-oauth-connect">Source</a>
+      </nav>
+    </div>
+    <pre class="cmd" id="diagnose">/plugin marketplace add GFB2026/mcp-oauth-connect
 /plugin install mcp-oauth-connect@mcp-oauth-connect
 
 python skills/mcp-oauth-connect/scripts/diagnose.py https://mcp.example.com</pre>
-    <ul>
-      <li>Free: diagnose skill (PRM, S256, POST /mcp, absolute resource_metadata, no cross-host 3xx), quad-host manifests.</li>
-      <li>Paid: <code>template/</code> — $99 one-time, 365-day key. Not a Cursor Marketplace charge.</li>
-    </ul>
-    <p><a class="buy" href="https://buy.stripe.com/4gM8wH50u7Jt8Cd6mD3Nm0k">Buy template — $99</a></p>
-    <p class="dim">Payment Link on the GFB Stripe account. After pay, you get a thank-you page; the key is issued off-catalog.</p>
-    <p><a href="https://github.com/GFB2026/mcp-oauth-connect">github.com/GFB2026/mcp-oauth-connect</a></p>
-    <p class="dim">Not the ILI fleet. Not gregops-plugins. Ping-only template — no host shell. Auto-approve remains; do not wire host tools without reading the template README.</p>
-  </main>
+    <dl class="sheet">
+      <div>
+        <dt>Free</dt>
+        <dd>Diagnose skill. PRM, S256, POST /mcp, absolute resource_metadata, no cross-host 3xx. MIT. That is the acquisition path.</dd>
+      </div>
+      <div>
+        <dt>Paid</dt>
+        <dd>template/ extract from a connector already live on those four hosts. $99 once, 365-day key. Stripe Payment Link — not a Cursor Marketplace charge.</dd>
+      </div>
+      <div>
+        <dt>After pay</dt>
+        <dd>This origin’s thank-you page. License key issued off-catalog (fulfillment note), not in the checkout UI.</dd>
+      </div>
+      <div>
+        <dt>Proof</dt>
+        <dd>Same provider already survives claude.ai, Desktop, Cursor, and Grok at mcp.gregfredabytes.com.</dd>
+      </div>
+      <div>
+        <dt>Not</dt>
+        <dd>ILI fleet. Host shell. Care intake. Monthly. A second Stripe identity.</dd>
+      </div>
+    </dl>
+  </section>
+
+  <footer class="bottom">
+    <div class="col">
+      <span class="k">Surface</span>
+      <span class="v">NODE-01</span>
+    </div>
+    <div class="col">
+      <span class="k">Operator</span>
+      <span class="v">MCP OAuth Connect</span>
+    </div>
+    <div class="col r">
+      <span class="k"><span id="year">2026</span></span>
+      <span class="v"><a href="/">gregfredabytes.com</a></span>
+    </div>
+  </footer>
+</main>
+
+<script src="field.js?v=2.11.0-cartouche" defer></script>
+<script src="/care/agent-shell.js" defer></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"17ad6bc20a1f40edbd808a48d3454100"}' crossorigin="anonymous"></script>
 </body>
 </html>
