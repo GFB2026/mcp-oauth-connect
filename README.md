@@ -9,14 +9,14 @@ ILI / GregOps stays private. This repo has **no** host shell, mail, or student t
 Claude Code:
 
 ```text
-/plugin marketplace add <this-repo>
+/plugin marketplace add GFB2026/mcp-oauth-connect
 /plugin install mcp-oauth-connect@mcp-oauth-connect
 ```
 
 Grok Build:
 
 ```text
-grok plugin marketplace add <this-repo>
+grok plugin marketplace add GFB2026/mcp-oauth-connect
 grok plugin install mcp-oauth-connect --trust
 ```
 
@@ -36,7 +36,9 @@ You need:
 
 Allowlist-gated OAuth provider extracted from a production connector that already survives those four hosts. Copy `template/`, set `MCP_ISSUER_URL`, run with `MCP_OAUTH_DEV=1` until you have a key (`license/`).
 
-**Do not buy this through Cursor official Marketplace** — that listing is free by contract. Keys are issued off-catalog (Stripe Payment Link when Greg turns money on). See `license/README.md`.
+**Do not buy this through Cursor official Marketplace** — that listing is free by contract. Keys are issued off-catalog. GFB already takes card on the live Stripe account behind `gfb-rescue` (`/api/checkout` SKUs). A `mcp_oauth_connect` price id is the missing env slot, not a new Stripe identity. See `license/README.md`.
+
+Landing (operator desk, not studio): https://gregfredabytes.com/mcp-oauth-connect/
 
 ## What this is not
 

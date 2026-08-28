@@ -1,28 +1,66 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>MCP OAuth Connect — connectors that actually connect</title>
-  <style>
-    :root { color-scheme: dark; --bg: #0e1114; --fg: #e8ecef; --muted: #9aa3ab; --accent: #7eb8c9; }
-    body { margin: 0; font-family: ui-sans-serif, system-ui, sans-serif; background: var(--bg); color: var(--fg); line-height: 1.5; }
-    main { max-width: 40rem; margin: 0 auto; padding: 3rem 1.25rem; }
-    h1 { font-size: 1.75rem; letter-spacing: -0.03em; }
-    .muted { color: var(--muted); }
-    code { background: #1a2024; padding: 0.1em 0.35em; border-radius: 4px; }
-    pre { background: #1a2024; padding: 1rem; overflow: auto; border-radius: 8px; }
-    a { color: var(--accent); }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#0a0a0a">
+<title>MCP OAuth Connect — Greg Freda</title>
+<meta name="description" content="Diagnose MCP OAuth 2.0 so claude.ai, Cursor, and Grok actually connect. Plugin plus allowlist-gated FastMCP template.">
+<link rel="canonical" href="https://gregfredabytes.com/mcp-oauth-connect/">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<style>
+  :root {
+    --bg: #0a0a0a;
+    --fg: #e6e6e6;
+    --dim: #6a6a6a;
+    --accent: #22b573;
+    --rule: rgba(255,255,255,0.06);
+    --mono: ui-monospace, "SF Mono", Menlo, Monaco, Consolas, monospace;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--sans);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  main { max-width: 40rem; margin: 0 auto; padding: 3.5rem 1.25rem 5rem; }
+  a { color: var(--accent); }
+  .dim { color: var(--dim); font-size: 0.85rem; letter-spacing: 0.04em; }
+  h1 { font-size: 1.6rem; font-weight: 600; letter-spacing: -0.03em; margin: 0.4rem 0 1rem; }
+  p { margin: 0.75rem 0; }
+  pre, code { font-family: var(--mono); font-size: 0.82rem; }
+  pre {
+    background: #111;
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    padding: 0.9rem 1rem;
+    overflow-x: auto;
+    margin: 1rem 0;
+  }
+  ul { margin: 0.75rem 0 0.75rem 1.2rem; }
+  li { margin: 0.25rem 0; }
+</style>
 </head>
 <body>
   <main>
-    <p class="muted">GregFredaBytes · plugin lane</p>
+    <p class="dim"><a href="/">Greg Freda</a> · operator product</p>
     <h1>MCP OAuth Connect</h1>
-    <p>Static bearer middleware passes curl and fails in claude.ai, Claude Desktop, Cursor, and Grok. This plugin diagnoses the miss and ships the DCR template those UIs complete.</p>
-    <pre>python skills/mcp-oauth-connect/scripts/diagnose.py https://mcp.example.com</pre>
-    <p>Free: diagnose skill + multi-host install. Paid: <code>template/</code> (license key). Cursor official Marketplace listing stays free — charge is off-catalog.</p>
-    <p class="muted">Landing stub. Host on gfbytes.com when the GitHub repo is public. No Stripe on this page until Greg flips money.</p>
+    <p>Static bearer middleware passes curl and dies in claude.ai Connectors, Claude Desktop, Cursor, and Grok. This plugin diagnoses the miss and ships the DCR template those UIs complete.</p>
+    <pre>/plugin marketplace add GFB2026/mcp-oauth-connect
+/plugin install mcp-oauth-connect@mcp-oauth-connect
+
+python skills/mcp-oauth-connect/scripts/diagnose.py https://mcp.example.com</pre>
+    <ul>
+      <li>Free: diagnose skill, quad-host manifests (Claude · Grok · Cursor · Codex).</li>
+      <li>Paid: <code>template/</code> — allowlist-gated FastMCP OAuth. License key; not a Cursor Marketplace charge.</li>
+    </ul>
+    <p><a href="https://github.com/GFB2026/mcp-oauth-connect">github.com/GFB2026/mcp-oauth-connect</a></p>
+    <p class="dim">Not the ILI fleet. Not gregops-plugins. Ping-only template — no host shell.</p>
   </main>
 </body>
 </html>
