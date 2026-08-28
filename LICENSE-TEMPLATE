@@ -1,0 +1,10 @@
+Proprietary license — template/
+
+Copyright (c) 2026 Greg Freda / GregFredaBytes
+
+The files under template/ are the paid product. You may run them on your own
+MCP host if you hold a valid MCP_OAUTH_LICENSE_KEY (or MCP_OAUTH_DEV=1 for
+local development). You may not republish template/ as a competing plugin,
+marketplace listing, or public gist.
+
+The diagnose skill, manifests, and tests are MIT (see LICENSE).

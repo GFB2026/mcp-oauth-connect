@@ -1,0 +1,16 @@
+[project]
+name = "mcp-oauth-connect"
+version = "0.1.0"
+description = "Diagnose and stand up MCP OAuth 2.0 so Connectors UIs actually connect."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "Greg Freda", email = "greg@gregfredabytes.com" }]
+
+[project.optional-dependencies]
+template = ["mcp>=1.27,<2"]
+dev = ["pytest>=8"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = [".", "template", "skills/mcp-oauth-connect/scripts"]

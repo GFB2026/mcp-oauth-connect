@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+oauth_state.json
+oauth_state.json.tmp
+.pytest_cache/
+*.egg-info/
+dist/
+build/
+.ruff_cache/
