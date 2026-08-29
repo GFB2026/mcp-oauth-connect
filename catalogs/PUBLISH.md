@@ -25,7 +25,7 @@ HOME=/root mcp-publisher publish /opt/apps/gfb/products/mcp-oauth-connect/catalo
 
 ## Smithery
 
-HTTPS URL `https://mcp.gfbytes.com/mcp` (OAuth, streamable HTTP). CLI: `smithery mcp publish https://mcp.gfbytes.com/mcp -n gfbytes/mcp-oauth-connect`. Needs `smithery auth login` (browser). Static card: `/.well-known/mcp/server-card.json`.
+**LIVE** https://smithery.ai/servers/greg-efcm/mcp-oauth-connect (external, `https://mcp.gfbytes.com/mcp`). Namespace is Smithery’s `greg-efcm` (3-namespace cap blocked `gfbytes`). Republish: `smithery mcp publish https://mcp.gfbytes.com/mcp -n greg-efcm/mcp-oauth-connect`.
 
 ## Glama
 
@@ -41,6 +41,7 @@ https://www.pulsemcp.com/submit — prefers Official Registry ingest. After regi
 |------|--------|
 | Own GitHub marketplace | Live: `/plugin marketplace add GFB2026/mcp-oauth-connect` |
 | Official MCP Registry | Live: `com.gfbytes/mcp-oauth-connect` 0.2.0 |
+| Smithery | Live: https://smithery.ai/servers/greg-efcm/mcp-oauth-connect |
 | Grok official | PR https://github.com/xai-org/plugin-marketplace/pull/410 — pin `28a9e8a` |
 | Cursor official | Do **not** submit this dual-license tree (`LISTING.md`). Form is Greg login https://cursor.com/marketplace/publish |
 | Claude directory | `claude plugin validate` passed. Form is Greg Console https://platform.claude.com/plugins/submit |
