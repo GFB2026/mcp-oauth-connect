@@ -20,6 +20,16 @@ const HOSTS = {
       DIAGNOSE + " " + mcpUrl()
     ]
   },
+  cursor: {
+    label: "Cursor",
+    lines: () => [
+      "git clone https://github.com/GFB2026/mcp-oauth-connect",
+      "cd mcp-oauth-connect",
+      DIAGNOSE + " " + mcpUrl(),
+      "",
+      "# ~/.cursor/mcp.json for YOUR server: url only, no bearer"
+    ]
+  },
   git: {
     label: "Git",
     lines: () => [
@@ -161,7 +171,28 @@ async function copyInstall() {
   }
 }
 
+function pulseHandshake() {
+  const root = document.querySelector(".hs:not(.is-complete)");
+  if (!root) return;
+  const steps = root.querySelectorAll(".hs-steps li");
+  if (!steps.length) return;
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  let i = 0;
+  function tick() {
+    steps.forEach(function (el, idx) {
+      if (idx === i) el.setAttribute("data-on", "");
+      else el.removeAttribute("data-on");
+    });
+    i = (i + 1) % steps.length;
+  }
+  tick();
+  setInterval(tick, 1100);
+}
+
 (function bind() {
+  const year = document.getElementById("year");
+  if (year) year.textContent = String(new Date().getFullYear());
+  pulseHandshake();
   const tabs = document.querySelectorAll(".hosts button[data-host]");
   tabs.forEach(function (btn) {
     btn.addEventListener("click", function () {
