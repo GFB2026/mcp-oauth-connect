@@ -2,7 +2,7 @@
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "com.gfbytes/mcp-oauth-connect",
   "title": "MCP OAuth Connect",
-  "description": "Ping-only public origin that already survives claude.ai, Desktop, Cursor, and Grok Connectors. Diagnose skill is MIT; template/ is a separate paid extract.",
+  "description": "Ping-only MCP origin for claude.ai, Desktop, Cursor, and Grok Connectors.",
   "version": "0.2.0",
   "repository": {
     "url": "https://github.com/GFB2026/mcp-oauth-connect",
