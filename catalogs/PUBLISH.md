@@ -10,18 +10,22 @@ server-card: https://mcp.gfbytes.com/.well-known/mcp/server-card.json
 
 ## Official MCP Registry
 
-Namespace `com.gfbytes/mcp-oauth-connect` needs DNS or HTTP proof that GFB controls gfbytes.com.
+**LIVE** `com.gfbytes/mcp-oauth-connect` `0.2.0` (active 2026-08-29).
+Search: `https://registry.modelcontextprotocol.io/v0.1/servers?search=com.gfbytes/mcp-oauth-connect`
+HTTP proof: `https://gfbytes.com/.well-known/mcp-registry-auth` (Ed25519). Private key stays on gfb `/root/.config/mcp-publisher/` — not git.
+
+Republish:
 
 ```text
-mcp-publisher login dns --domain gfbytes.com
-mcp-publisher publish
+HOME=/root mcp-publisher login http --domain=gfbytes.com --private-key=$(cat /root/.config/mcp-publisher/gfbytes-ed25519.hex)
+HOME=/root mcp-publisher publish /opt/apps/gfb/products/mcp-oauth-connect/catalogs/server.json
 ```
 
-Until that TXT/HTTP challenge is in DNS, do not claim a registry row exists.
+`server.json` description must stay ≤100 chars (schema).
 
 ## Smithery
 
-https://smithery.ai/new — HTTPS URL `https://mcp.gfbytes.com/mcp` (OAuth, streamable HTTP). Scan may need a one-time auth. Static card is at `/.well-known/mcp/server-card.json`.
+HTTPS URL `https://mcp.gfbytes.com/mcp` (OAuth, streamable HTTP). CLI: `smithery mcp publish https://mcp.gfbytes.com/mcp -n gfbytes/mcp-oauth-connect`. Needs `smithery auth login` (browser). Static card: `/.well-known/mcp/server-card.json`.
 
 ## Glama
 
@@ -36,9 +40,10 @@ https://www.pulsemcp.com/submit — prefers Official Registry ingest. After regi
 | Host | Status |
 |------|--------|
 | Own GitHub marketplace | Live: `/plugin marketplace add GFB2026/mcp-oauth-connect` |
-| Grok official | PR https://github.com/xai-org/plugin-marketplace/pull/410 — pin HEAD after this ship |
-| Cursor official | Greg login https://cursor.com/marketplace/publish — diagnose only, dual-license tree is a reject risk |
-| Claude directory | Greg login https://platform.claude.com/plugins/submit |
+| Official MCP Registry | Live: `com.gfbytes/mcp-oauth-connect` 0.2.0 |
+| Grok official | PR https://github.com/xai-org/plugin-marketplace/pull/410 — pin `28a9e8a` |
+| Cursor official | Do **not** submit this dual-license tree (`LISTING.md`). Form is Greg login https://cursor.com/marketplace/publish |
+| Claude directory | `claude plugin validate` passed. Form is Greg Console https://platform.claude.com/plugins/submit |
 
 ## Not this pack
 
