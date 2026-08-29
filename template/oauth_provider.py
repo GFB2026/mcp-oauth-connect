@@ -70,7 +70,8 @@ def _ttls_for_client(client: OAuthClientInformationFull) -> tuple[int, int]:
 
 class AllowlistOAuthProvider(OAuthAuthorizationServerProvider[AuthorizationCode, RefreshToken, AccessToken]):
     def __init__(self, persist_path: Path | str | None = None):
-        self.persist_path = Path(persist_path) if persist_path else _DEFAULT_PERSIST_PATH
+        env_path = os.environ.get("MCP_OAUTH_STATE", "").strip()
+        self.persist_path = Path(persist_path or env_path or _DEFAULT_PERSIST_PATH)
         self.clients: dict[str, OAuthClientInformationFull] = {}
         self.auth_codes: dict[str, AuthorizationCode] = {}
         self.access_tokens: dict[str, AccessToken] = {}
