@@ -2,7 +2,7 @@
 
 The plugin skill and diagnose script are free (MIT). `template/` is the paid extract.
 
-**Price: $99 one-time, 365-day key.** Not monthly. Not priced against Care/Rescue.
+**Price: $149 one-time, 365-day key.** Not monthly. Not priced against Care/Rescue. $99 was an unowned Cursor commit (2026-08-28); replaced 2026-08-29.
 
 **Do not charge inside Cursor official Marketplace.** Cursor Publisher Terms §3.1: listings are free; no fees directly or indirectly for a Plugin through the Marketplace. Cursor listing (if any) is diagnose-only. Charge on the landing Payment Link.
 
