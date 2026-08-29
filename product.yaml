@@ -1,0 +1,33 @@
+slug: mcp-oauth-connect
+name: MCP OAuth Connect
+publisher: GFB
+version: "0.2.0"
+tagline: Diagnose why Claude, Cursor, and Grok MCP Connectors fail
+lede: Diagnose the OAuth handshake so claude.ai, Desktop, Cursor, and Grok actually attach. Free diagnose skill. Paid extract is the FastMCP provider already live on those four hosts.
+price_usd: 149
+price_id: price_1U9qko0hd61SUNoB2zK07NmT
+stripe_product: prod_V9pfxkWxzrujfU
+payment_link: https://buy.stripe.com/3cI6oz64ybZJ2dP4ev3Nm0l
+key_days: 365
+demo_origin: https://mcp.gfbytes.com
+demo_mcp: https://mcp.gfbytes.com/mcp
+github: https://github.com/GFB2026/mcp-oauth-connect
+canonical: https://gfbytes.com/products/mcp-oauth-connect/
+hosts:
+  - claude.ai
+  - Desktop
+  - Cursor
+  - Grok
+free:
+  name: Diagnose skill
+  license: MIT
+  summary: PRM, S256, POST /mcp, absolute resource_metadata, no cross-host 3xx. GitHub, not a marketplace charge.
+paid:
+  name: template/ extract
+  license: proprietary
+  summary: FastMCP allowlist OAuth provider already live on those four hosts. One-time. Key issued off-catalog.
+not:
+  - A website package
+  - Hosting or Care intake
+  - A Cursor Marketplace charge
+  - The private operator MCP bus

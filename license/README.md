@@ -10,8 +10,8 @@ The plugin skill and diagnose script are free (MIT). `template/` is the paid ext
 
 Stripe Payment Link on the existing GFB Stripe account. Same legal entity. No Gumroad. No second Stripe identity. Do **not** wire `STRIPE_PRICE_MCP_OAUTH` through `gfb-rescue` until a payer exists — rescue `publicBaseForSku` falls through to `/care` and the webhook creates an intake order. A digital good on the Care form is a defect.
 
-1. Buyer pays via the Payment Link on https://gfbytes.com/mcp-oauth-connect/
-2. Success URL is `/mcp-oauth-connect/thank-you`
+1. Buyer pays via the Payment Link on https://gfbytes.com/products/mcp-oauth-connect/
+2. Success URL is `/products/mcp-oauth-connect/thank-you`
 3. You run `python license/issue.py buyer@example.com 365` on the seller machine (`MCP_OAUTH_LICENSE_SECRET` set)
 4. Paste the printed key into the Stripe Payment Link fulfillment note / a one-line email
 
