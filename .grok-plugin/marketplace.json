@@ -13,7 +13,7 @@
       "author": { "name": "Greg Freda" },
       "category": "development",
       "keywords": ["mcp-oauth-connect", "gregfredabytes", "gfb mcp oauth"],
-      "homepage": "https://gregfredabytes.com/mcp-oauth-connect",
+      "homepage": "https://gfbytes.com/products/mcp-oauth-connect/",
       "source": { "type": "local", "path": "." }
     }
   ]

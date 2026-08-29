@@ -1,0 +1,22 @@
+{
+  "serverInfo": {
+    "name": "MCP OAuth Connect",
+    "version": "0.2.0"
+  },
+  "authentication": {
+    "required": true,
+    "schemes": ["oauth2"]
+  },
+  "tools": [
+    {
+      "name": "ping",
+      "description": "Liveness check for the public proof origin. No host shell, mail, or student tools.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {}
+      }
+    }
+  ],
+  "resources": [],
+  "prompts": []
+}

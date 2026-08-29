@@ -1,0 +1,1 @@
+Curl works. The Connectors UI does not. MCP OAuth Connect diagnoses the OAuth handshake (401 → PRM → DCR → connected) so claude.ai, Desktop, Cursor, and Grok actually attach. Free MIT diagnose skill. Optional $149 FastMCP extract is sold off-catalog on gfbytes.com — not a marketplace charge.

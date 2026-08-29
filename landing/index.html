@@ -3,30 +3,32 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="color-scheme" content="dark">
-<meta name="theme-color" content="#07090d">
-<title>MCP OAuth Connect — diagnose the handshake the Connectors UI needs</title>
-<meta name="description" content="Diagnose MCP OAuth 2.0 / DCR so claude.ai, Desktop, Cursor, and Grok actually connect. $149 one-time FastMCP extract.">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#f6f7f5">
+<title>MCP OAuth Connect — GFB</title>
+<meta name="description" content="Diagnose the OAuth handshake so claude.ai, Desktop, Cursor, and Grok actually attach. Free diagnose skill. Paid extract is the FastMCP provider already live on those four hosts.">
 <meta name="author" content="Greg Freda">
 <meta name="robots" content="index,follow">
-<link rel="canonical" href="https://gregfredabytes.com/mcp-oauth-connect/">
+<link rel="canonical" href="https://gfbytes.com/products/mcp-oauth-connect/">
+<link rel="sitemap" type="application/xml" title="Sitemap" href="https://gfbytes.com/sitemap.xml">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta property="og:title" content="MCP OAuth Connect">
-<meta property="og:description" content="Curl works. The Connectors UI does not.">
+<meta property="og:description" content="Diagnose the OAuth handshake so claude.ai, Desktop, Cursor, and Grok actually attach. Free diagnose skill. Paid extract is the FastMCP provider already live on those four hosts.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://gregfredabytes.com/mcp-oauth-connect/">
-<meta property="og:site_name" content="MCP OAuth Connect">
-<meta name="twitter:card" content="summary">
+<meta property="og:url" content="https://gfbytes.com/products/mcp-oauth-connect/">
+<meta property="og:image" content="https://gfbytes.com/products/mcp-oauth-connect/og-1200x630.png">
+<meta property="og:site_name" content="GFB">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="MCP OAuth Connect">
-<meta name="twitter:description" content="Curl works. The Connectors UI does not.">
+<meta name="twitter:description" content="Diagnose the OAuth handshake so claude.ai, Desktop, Cursor, and Grok actually attach. Free diagnose skill. Paid extract is the FastMCP provider already live on those four hosts.">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:; connect-src 'self' https://cloudflareinsights.com https://mcp.gfbytes.com; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests">
 <meta http-equiv="X-Content-Type-Options" content="nosniff">
 <meta name="permissions-policy" content="accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()">
 <link rel="icon" type="image/svg+xml" href="mark.svg">
 <link rel="icon" href="/favicon.ico" sizes="48x48">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="stylesheet" href="connect.css?v=0.3.3">
-
+<link rel="stylesheet" href="connect.css?v=2.0.0">
+<link rel="icon" type="image/png" sizes="240x240" href="mark-240.png">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -34,153 +36,182 @@
   "name": "MCP OAuth Connect",
   "applicationCategory": "DeveloperApplication",
   "operatingSystem": "Any",
-  "url": "https://gregfredabytes.com/mcp-oauth-connect/",
-  "author": { "@type": "Person", "name": "Greg Freda" },
+  "url": "https://gfbytes.com/products/mcp-oauth-connect/",
+  "author": {
+    "@type": "Organization",
+    "name": "GFB"
+  },
   "offers": {
     "@type": "Offer",
     "price": "149.00",
     "priceCurrency": "USD",
     "url": "https://buy.stripe.com/3cI6oz64ybZJ2dP4ev3Nm0l"
   },
-  "description": "Diagnose MCP OAuth 2.0 / DCR so claude.ai, Desktop, Cursor, and Grok actually connect."
+  "description": "Diagnose the OAuth handshake so claude.ai, Desktop, Cursor, and Grok actually attach. Free diagnose skill. Paid extract is the FastMCP provider already live on those four hosts."
 }
 </script>
 </head>
 <body>
-
 <a class="skip" href="#install">Skip to install</a>
-<div class="grid" aria-hidden="true"></div>
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="logo" href="/">
+      <span class="logo-mark" aria-hidden="true"></span>
+      <span>GFB</span><span class="pub">products</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="/products/">Products</a></li>
+      <li><a href="/products/mcp-oauth-connect/#install">Install</a></li>
+      <li><a href="https://github.com/GFB2026/mcp-oauth-connect">GitHub</a></li>
+    </ul>
+    <a class="nav-cta" href="https://buy.stripe.com/3cI6oz64ybZJ2dP4ev3Nm0l">Buy $149</a>
+  </div>
+</header>
 
-<div class="wrap">
-  <header class="top">
-    <a class="home" href="/">gregfredabytes.com</a>
-    <a class="buy-sm" href="https://buy.stripe.com/3cI6oz64ybZJ2dP4ev3Nm0l">Buy $149</a>
-  </header>
-
-  <main>
-    <section class="hero" aria-labelledby="product-title">
-      <div>
-        <p class="brand">
-          <img src="mark.svg" width="36" height="36" alt="">
-          MCP OAuth Connect
-        </p>
-        <h1 id="product-title">Curl works.<br>The Connectors UI does not.</h1>
-        <p class="lede">Diagnose the OAuth 2.0 / DCR handshake so claude.ai, Desktop, Cursor, and Grok actually attach. The paid extract is the FastMCP provider already live on those four hosts.</p>
-        <div class="cta">
-          <a class="btn btn-buy" href="https://buy.stripe.com/3cI6oz64ybZJ2dP4ev3Nm0l">Buy the extract — $149</a>
-          <a class="btn btn-ghost" href="#install">Install diagnose — free</a>
-        </div>
-        <p class="fine">One-time · 365-day key · not a Cursor Marketplace charge</p>
-        <ul class="host-pills">
-          <li>claude.ai</li>
-          <li>Desktop</li>
-          <li>Cursor</li>
-          <li>Grok</li>
-        </ul>
-      </div>
-
-      <figure class="hs" aria-label="Handshake from four hosts to an MCP resource">
-        <ul class="hs-clients">
-          <li><span class="dot" aria-hidden="true"></span>claude.ai</li>
-          <li><span class="dot" aria-hidden="true"></span>Desktop</li>
-          <li><span class="dot" aria-hidden="true"></span>Cursor</li>
-          <li><span class="dot" aria-hidden="true"></span>Grok</li>
-        </ul>
-        <ol class="hs-steps">
-          <li data-kind="try"><code>GET /mcp</code></li>
-          <li data-kind="challenge" title="WWW-Authenticate"><code>401</code></li>
-          <li data-kind="discover" title="RFC 9728 protected resource metadata"><code>PRM</code></li>
-          <li data-kind="discover" title="Dynamic client registration + S256"><code>DCR</code></li>
-          <li data-kind="ok"><code>connected</code></li>
-        </ol>
-        <div class="hs-origin">
-          <strong>/mcp</strong>
-          <span>resource</span>
-        </div>
-      </figure>
-    </section>
-
-    <section class="term" id="install" aria-label="Install diagnose">
-      <div class="term-bar">
-        <span>Install · diagnose free</span>
-        <button type="button" id="copy-install">Copy</button>
-      </div>
-      <nav class="hosts" role="tablist" aria-label="Install host">
-        <button type="button" role="tab" aria-selected="true" aria-controls="install-cmd" data-host="claude">Claude Code</button>
-        <button type="button" role="tab" aria-selected="false" aria-controls="install-cmd" data-host="grok">Grok</button>
-        <button type="button" role="tab" aria-selected="false" aria-controls="install-cmd" data-host="cursor">Cursor</button>
-        <button type="button" role="tab" aria-selected="false" aria-controls="install-cmd" data-host="git">Git</button>
-      </nav>
-      <pre class="cmd" id="install-cmd" role="tabpanel"></pre>
-    </section>
-
-    <section class="term" id="demo" aria-label="Live discovery probe">
-      <div class="term-bar">
-        <span>Demo · mcp.gfbytes.com</span>
-        <button type="button" id="probe">Probe live</button>
-      </div>
-      <label class="probe">
-        <span>URL</span>
-        <input id="mcp-url" type="url" spellcheck="false" autocomplete="off" value="https://mcp.gfbytes.com">
-      </label>
-      <pre class="cmd" id="demo-out" aria-live="polite"></pre>
-    </section>
-
-    <dl class="sheet">
-      <div>
-        <dt>Free</dt>
-        <dd>Diagnose skill. PRM, S256, POST /mcp, absolute resource_metadata, no cross-host 3xx. MIT. Acquisition path is GitHub, not a marketplace charge.</dd>
-      </div>
-      <div>
-        <dt>GitHub</dt>
-        <dd>
-          <a href="https://github.com/GFB2026/mcp-oauth-connect">GFB2026/mcp-oauth-connect</a>
-          · <a href="https://github.com/GFB2026/mcp-oauth-connect/blob/master/skills/mcp-oauth-connect/scripts/diagnose.py">diagnose.py</a>
-          · <a href="https://github.com/GFB2026/mcp-oauth-connect/blob/master/README.md">README</a>
-          · <a href="https://github.com/GFB2026/mcp-oauth-connect/blob/master/template/README.md">template/</a>
-        </dd>
-      </div>
-      <div>
-        <dt>Attach</dt>
-        <dd>claude.ai Connectors: URL only. Desktop: Type Web, Custom — JSON <code>url</code> is stripped. Cursor <code>mcp.json</code>: url, no bearer. Grok: loopback <code>/callback</code>, public client, no secret.</dd>
-      </div>
-      <div>
-        <dt>Paid</dt>
-        <dd>template/ extract from a connector already live on those four hosts. $149 once, 365-day key. Stripe Payment Link — not a Cursor Marketplace charge.</dd>
-      </div>
-      <div>
-        <dt>After pay</dt>
-        <dd>This origin’s thank-you page. License key issued off-catalog (fulfillment note), not in the checkout UI.</dd>
-      </div>
-      <div>
-        <dt>Proof</dt>
-        <dd>Public proof origin is mcp.gfbytes.com — ping only. Not the operator bus. Probe live runs discovery there. Full GET/POST /mcp checks are the Python script — browsers cannot read 401 WWW-Authenticate (no CORS on the challenge).</dd>
-      </div>
-      <div>
-        <dt>Handshake</dt>
-        <dd><code>GET /mcp</code> → 401 + <code>WWW-Authenticate</code> → protected-resource metadata → DCR + S256 → connected. That is the product. Curl 200 is not.</dd>
-      </div>
-      <div>
-        <dt>Not</dt>
-        <dd>ILI fleet. Host shell. Care intake. Monthly. A second Stripe identity. A hosted diagnose tenant.</dd>
-      </div>
-    </dl>
-  </main>
-
-  <footer class="bottom">
+<main class="wrap page">
+  <section class="hero" aria-labelledby="product-title">
     <div>
-      <div class="v">MCP OAuth Connect</div>
-      <div>diagnose free · template/ $149</div>
+      <p class="eyebrow">
+        <img src="mark.svg" width="36" height="36" alt="">
+        MCP OAuth Connect
+      </p>
+      <h1 id="product-title">Curl works.<br>The Connectors UI does not.</h1>
+      <p class="lede">Diagnose the OAuth handshake so claude.ai, Desktop, Cursor, and Grok actually attach. Free diagnose skill. Paid extract is the FastMCP provider already live on those four hosts.</p>
+      <div class="cta">
+        <a class="btn btn-ghost" href="#install">Install diagnose — free</a>
+        <a class="btn btn-buy" href="https://buy.stripe.com/3cI6oz64ybZJ2dP4ev3Nm0l">Buy the extract — $149</a>
+      </div>
+      <p class="fine">One-time · 365-day key · not a Cursor Marketplace charge</p>
+      <ul class="host-pills">
+        <li>claude.ai</li>
+        <li>Desktop</li>
+        <li>Cursor</li>
+        <li>Grok</li>
+      </ul>
+    </div>
+    <figure class="hs" aria-label="Handshake from four hosts to an MCP resource">
+      <ul class="hs-clients">
+        <li><span class="dot" aria-hidden="true"></span>claude.ai</li>
+        <li><span class="dot" aria-hidden="true"></span>Desktop</li>
+        <li><span class="dot" aria-hidden="true"></span>Cursor</li>
+        <li><span class="dot" aria-hidden="true"></span>Grok</li>
+      </ul>
+      <ol class="hs-steps">
+        <li data-kind="try"><code>GET /mcp</code></li>
+        <li data-kind="challenge"><code>401</code></li>
+        <li data-kind="discover"><code>PRM</code></li>
+        <li data-kind="discover"><code>DCR</code></li>
+        <li data-kind="ok"><code>connected</code></li>
+      </ol>
+      <div class="hs-origin">
+        <strong>/mcp</strong>
+        <span>resource</span>
+      </div>
+    </figure>
+  </section>
+
+  <section class="term" id="install" aria-label="Install diagnose">
+    <div class="term-bar">
+      <span>Install · diagnose free</span>
+      <button type="button" id="copy-install">Copy</button>
+    </div>
+    <nav class="hosts" role="tablist" aria-label="Install host">
+      <button type="button" role="tab" aria-selected="true" aria-controls="install-cmd" data-host="claude">Claude Code</button>
+      <button type="button" role="tab" aria-selected="false" aria-controls="install-cmd" data-host="grok">Grok</button>
+      <button type="button" role="tab" aria-selected="false" aria-controls="install-cmd" data-host="cursor">Cursor</button>
+      <button type="button" role="tab" aria-selected="false" aria-controls="install-cmd" data-host="git">Git</button>
+    </nav>
+    <pre class="cmd" id="install-cmd" role="tabpanel"></pre>
+  </section>
+
+  <section class="term" id="demo" aria-label="Live discovery probe">
+    <div class="term-bar">
+      <span>Demo · mcp.gfbytes.com</span>
+      <button type="button" id="probe">Probe live</button>
+    </div>
+    <label class="probe">
+      <span>URL</span>
+      <input id="mcp-url" type="url" spellcheck="false" autocomplete="off" value="https://mcp.gfbytes.com">
+    </label>
+    <pre class="cmd" id="demo-out" aria-live="polite"></pre>
+  </section>
+
+  <section class="pricing" aria-label="Pricing">
+    <div class="price-card">
+      <p class="tagline">Diagnose skill</p>
+      <p class="amt">$0 <span>MIT</span></p>
+      <p>PRM, S256, POST /mcp, absolute resource_metadata, no cross-host 3xx. GitHub, not a marketplace charge.</p>
+      <a class="btn btn-ghost" href="#install">Install</a>
+    </div>
+    <div class="price-card is-paid">
+      <p class="tagline">template/ extract</p>
+      <p class="amt">$149 <span>once · 365d key</span></p>
+      <p>FastMCP allowlist OAuth provider already live on those four hosts. One-time. Key issued off-catalog.</p>
+      <a class="btn btn-buy" href="https://buy.stripe.com/3cI6oz64ybZJ2dP4ev3Nm0l">Buy on Stripe</a>
+    </div>
+  </section>
+
+  <section class="faq" aria-label="FAQ">
+    <h2>FAQ</h2>
+    <details open>
+      <summary>Is this a Cursor Marketplace charge?</summary>
+      <p>No. Official catalogs are $0 (diagnose skill). The $149 Payment Link is off-catalog for the FastMCP <code>template/</code> extract.</p>
+    </details>
+    <details>
+      <summary>What is the live demo?</summary>
+      <p>Ping-only origin <code>https://mcp.gfbytes.com</code>. One tool after OAuth: ping. Not the operator bus.</p>
+    </details>
+    <details>
+      <summary>When do I get a license key?</summary>
+      <p>After Stripe, you land on this origin’s thank-you page. The key is issued off-catalog with <code>license/issue.py</code> — not in the checkout UI.</p>
+    </details>
+    <details>
+      <summary>Can I run the template before the key?</summary>
+      <p><code>MCP_OAUTH_DEV=1</code> skips the check while you wire issuer URL. Treat a payer as a kill-rule test.</p>
+    </details>
+  </section>
+
+  <form class="lead" method="post" action="/products/lead" aria-label="Launch notes">
+    <h2>Launch notes</h2>
+    <p>Product Hunt and catalog dates. No marketing blast. We do not send mail from this form.</p>
+    <input type="hidden" name="slug" value="mcp-oauth-connect">
+    <input class="hp" type="text" name="company" tabindex="-1" autocomplete="off">
+    <div class="lead-row">
+      <input type="email" name="email" required placeholder="you@company.com" autocomplete="email">
+      <button type="submit">Save my email</button>
+    </div>
+  </form>
+
+  <dl class="sheet">
+    <div>
+      <dt>GitHub</dt>
+      <dd><a href="https://github.com/GFB2026/mcp-oauth-connect">GFB2026/mcp-oauth-connect</a></dd>
     </div>
     <div>
-      <span id="year">2026</span>
-      · <a href="/">gregfredabytes.com</a>
-      · <a href="https://github.com/GFB2026/mcp-oauth-connect">GitHub</a>
+      <dt>Attach</dt>
+      <dd>claude.ai Connectors: URL only. Desktop: Type Web, Custom. Cursor <code>mcp.json</code>: url, no bearer. Grok: loopback <code>/callback</code>.</dd>
     </div>
-  </footer>
-</div>
-
-<script src="surface.js?v=0.3.4" defer></script>
-<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"17ad6bc20a1f40edbd808a48d3454100"}' crossorigin="anonymous"></script>
+    <div>
+      <dt>Handshake</dt>
+      <dd><code>GET /mcp</code> → 401 + <code>WWW-Authenticate</code> → PRM → DCR + S256 → connected. Curl 200 is not the product.</dd>
+    </div>
+    <div>
+      <dt>Not</dt>
+      <dd>A website package, Hosting or Care intake, A Cursor Marketplace charge, The private operator MCP bus</dd>
+    </div>
+  </dl>
+</main>
+<footer class="site-foot">
+  <div class="wrap foot-inner">
+    <span>© <span id="year">2026</span> GFB · products</span>
+    <div class="foot-links">
+      <a href="/products/">Products</a>
+      <a href="/products/mcp-oauth-connect/privacy">Privacy</a>
+      <a href="/products/mcp-oauth-connect/terms">Terms</a>
+      <a href="https://github.com/GFB2026/mcp-oauth-connect">GitHub</a>
+    </div>
+  </div>
+</footer>
+<script src="surface.js?v=2.0.0" defer></script>
 </body>
 </html>

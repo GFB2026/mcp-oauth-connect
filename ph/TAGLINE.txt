@@ -1,0 +1,1 @@
+Diagnose why Claude, Cursor, and Grok MCP Connectors fail
