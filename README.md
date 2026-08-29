@@ -50,7 +50,7 @@ The public default allowlist is slightly more Cursor-ready than production (it i
 
 - Not a generic coding-skill dump
 - Not the internal `gregops-plugins` marketplace
-- Not a second bind onto `mcp.gregfredabytes.com`
+- Not a second bind onto `mcp.gregfredabytes.com` (that origin is the operator bus). Public proof is `https://mcp.gfbytes.com` (ping only).
 - Not a rescue/Care SKU (that map is for after a payer exists)
 - Not a second plugin, hosted diagnose tenant, or NY CE-ops pack
 

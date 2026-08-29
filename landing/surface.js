@@ -1,4 +1,4 @@
-const PROOF = "https://mcp.gregfredabytes.com";
+const PROOF = "https://mcp.gfbytes.com";
 const DIAGNOSE = "python skills/mcp-oauth-connect/scripts/diagnose.py";
 
 const HOSTS = {
@@ -41,16 +41,14 @@ const HOSTS = {
 };
 
 const PROOF_REPORT = {
-  url: "https://mcp.gregfredabytes.com",
-  mcp_url: "https://mcp.gregfredabytes.com/mcp",
+  url: "https://mcp.gfbytes.com",
+  mcp_url: "https://mcp.gfbytes.com/mcp",
   ok: true,
-  warnings: [
-    "Origin PRM 404; path-appended form is present. Anthropic also curls /.well-known/oauth-protected-resource"
-  ],
+  warnings: [],
   checks: {
     authorization_server_metadata: { ok: true, status: 200 },
     code_challenge_s256: { ok: true },
-    protected_resource_metadata: { ok: false, status: 404 },
+    protected_resource_metadata: { ok: true, status: 200 },
     protected_resource_metadata_path: { ok: true, status: 200 },
     mcp_no_cross_host_redirect: { ok: true },
     unauthenticated_mcp_get: { ok: true, status: 401 },
@@ -119,6 +117,7 @@ async function probeProof() {
   pre.textContent = "probing " + PROOF + " …";
   const paths = [
     "/.well-known/oauth-authorization-server",
+    "/.well-known/oauth-protected-resource",
     "/.well-known/oauth-protected-resource/mcp"
   ];
   const lines = ["live discovery  " + PROOF, "browser cannot read WWW-Authenticate on 401 — that is diagnose.py", ""];
