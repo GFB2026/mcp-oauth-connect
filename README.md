@@ -36,11 +36,11 @@ You need:
 - No cross-host `3xx` on the MCP path
 - URL-only in the Connectors UI (no static bearer)
 
-## Paid extract (`template/`) — $99 one-time
+## Paid extract (`template/`) — $149 one-time
 
 Allowlist-gated OAuth provider extracted from a production connector that already survives those four hosts. Copy `template/`, set `MCP_ISSUER_URL`, run with `MCP_OAUTH_DEV=1` until you have a key (`license/`).
 
-**$99 one-time, 365-day key**, Stripe Payment Link on the existing GFB account. Not monthly. Not a Cursor Marketplace charge (Publisher Terms §3.1). Keys are issued off-catalog with `license/issue.py`.
+**$149 one-time, 365-day key**, Stripe Payment Link on the existing GFB account. Not monthly. Not a Cursor Marketplace charge (Publisher Terms §3.1). Keys are issued off-catalog with `license/issue.py`.
 
 Landing (Buy lives here): https://gregfredabytes.com/mcp-oauth-connect/
 
