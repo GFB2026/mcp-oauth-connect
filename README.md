@@ -42,7 +42,7 @@ Allowlist-gated OAuth provider extracted from a production connector that alread
 
 **$149 one-time, 365-day key**, Stripe Payment Link on the existing GFB account. Not monthly. Not a Cursor Marketplace charge (Publisher Terms §3.1). Keys are issued off-catalog with `license/issue.py`.
 
-Landing (Buy lives here): https://gregfredabytes.com/mcp-oauth-connect/
+Landing (Buy lives here): https://gfbytes.com/mcp-oauth-connect/
 
 The public default allowlist is slightly more Cursor-ready than production (it includes `http://localhost:8787/callback`). Auto-approve is unchanged — read `template/README.md` before wiring host tools.
 
