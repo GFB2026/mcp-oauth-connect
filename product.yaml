@@ -1,7 +1,7 @@
 slug: mcp-oauth-connect
 name: MCP OAuth Connect
 publisher: GFB
-version: "0.5.1"
+version: "0.5.2"
 eyebrow: MCP connection
 h1: Four apps. Connected in two days.
 tagline: Four apps. Connected in two days.
@@ -20,7 +20,7 @@ cta_secondary: Free checker
 fine: Paste your server URL at checkout. We run the free checker first.
 note: Checkout is Stripe. One payment. If the checker passes, screenshots arrive within two business days. If it fails, we quote a separate fix.
 who_title: From GFB
-who: "Greg Freda founded GFB. He is Vice President of Insurance Licensing Institute, a New York DFS-approved education provider — operations, continuing education, certificates, and same-day DFS reporting, on systems he built. This connection report is fulfilled on GFB’s live Claude, Cursor, Desktop, and Grok accounts."
+who: "Greg Freda founded GFB. He founded Higher Hosting — web hosting and websites — and has been building and running production systems for decades. This connection report is fulfilled on GFB’s live Claude, Cursor, Desktop, and Grok accounts."
 hosts:
   - claude.ai
   - Desktop
