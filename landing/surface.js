@@ -27,7 +27,7 @@ const HOSTS = {
       "cd mcp-oauth-connect",
       DIAGNOSE + " " + mcpUrl(),
       "",
-      "# ~/.cursor/mcp.json for YOUR server: url only, no bearer"
+      "# For your server in ~/.cursor/mcp.json: url only, no API key"
     ]
   },
   git: {
@@ -46,14 +46,10 @@ const PROOF_REPORT = {
   ok: true,
   warnings: [],
   checks: {
-    authorization_server_metadata: { ok: true, status: 200 },
-    code_challenge_s256: { ok: true },
-    protected_resource_metadata: { ok: true, status: 200 },
-    protected_resource_metadata_path: { ok: true, status: 200 },
-    mcp_no_cross_host_redirect: { ok: true },
-    unauthenticated_mcp_get: { ok: true, status: 401 },
-    unauthenticated_mcp_post: { ok: true, status: 401 },
-    resource_metadata_absolute: { ok: true }
+    sign_in_challenge: { ok: true, status: 401 },
+    protected_resource: { ok: true, status: 200 },
+    no_cross_host_redirect: { ok: true },
+    ready: { ok: true }
   }
 };
 
@@ -85,18 +81,18 @@ function formatReport(report, liveNote) {
   const lines = [];
   if (liveNote) lines.push(liveNote, "");
   lines.push("url  " + (report.url || ""));
-  if (report.mcp_url) lines.push("mcp  " + report.mcp_url);
+  if (report.mcp_url) lines.push("server  " + report.mcp_url);
   const checks = report.checks || {};
   Object.keys(checks).forEach(function (name) {
     const c = checks[name] || {};
     const mark = c.ok ? "ok  " : "fail";
     const extra = c.status != null ? "  " + c.status : "";
-    lines.push(mark + "  " + name + extra);
+    lines.push(mark + "  " + name.replace(/_/g, " ") + extra);
   });
   (report.warnings || []).forEach(function (w) {
-    lines.push("warn " + w);
+    lines.push("note " + w);
   });
-  lines.push(report.ok ? "exit 0" : "exit 1");
+  lines.push(report.ok ? "ready" : "needs work");
   return lines.join("\n");
 }
 
@@ -105,7 +101,7 @@ function showProofFixture() {
   if (!pre) return;
   pre.textContent = formatReport(
     PROOF_REPORT,
-    "test server  " + PROOF
+    "Public test server  " + PROOF
   );
 }
 
@@ -114,13 +110,13 @@ async function probeProof() {
   const btn = document.getElementById("probe");
   if (!pre) return;
   if (btn) btn.disabled = true;
-  pre.textContent = "probing " + PROOF + " …";
+  pre.textContent = "Checking " + PROOF + " …";
   const paths = [
     "/.well-known/oauth-authorization-server",
     "/.well-known/oauth-protected-resource",
     "/.well-known/oauth-protected-resource/mcp"
   ];
-  const lines = ["test server  " + PROOF, "The browser cannot see the login header on a 401. Run the free checker for the full report.", ""];
+  const lines = ["Public test server  " + PROOF, "The browser cannot see the sign-in header on a 401. Run the free checker for the full report.", ""];
   try {
     for (let i = 0; i < paths.length; i++) {
       const path = paths[i];
@@ -134,13 +130,12 @@ async function probeProof() {
       if (path.indexOf("authorization-server") !== -1) {
         const methods = body.code_challenge_methods_supported || [];
         const s256 = methods.indexOf("S256") !== -1;
-        lines.push((res.ok && body.issuer ? "ok  " : "fail") + "  " + path + "  " + res.status);
+        lines.push((res.ok && body.issuer ? "ok  " : "fail") + "  sign-in metadata  " + res.status);
         if (body.issuer) lines.push("     issuer " + body.issuer);
-        if (body.registration_endpoint) lines.push("     register " + body.registration_endpoint);
-        lines.push("     S256 " + (s256 ? "yes" : "no"));
+        lines.push("     secure sign-in " + (s256 ? "yes" : "no"));
       } else {
-        lines.push((res.ok && body.resource ? "ok  " : "fail") + "  " + path + "  " + res.status);
-        if (body.resource) lines.push("     resource " + body.resource);
+        lines.push((res.ok && body.resource ? "ok  " : "fail") + "  protected resource  " + res.status);
+        if (body.resource) lines.push("     " + body.resource);
       }
     }
     lines.push("");

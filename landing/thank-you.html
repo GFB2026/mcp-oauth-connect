@@ -27,7 +27,7 @@
 <link rel="icon" type="image/svg+xml" href="mark.svg">
 <link rel="icon" href="/favicon.ico" sizes="48x48">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="stylesheet" href="connect.css?v=2.0.0">
+<link rel="stylesheet" href="connect.css?v=2.1.0">
 </head>
 <body>
 <header class="nav">
@@ -38,27 +38,26 @@
     </a>
     <ul class="nav-links">
       <li><a href="/products/">Products</a></li>
-      <li><a href="/products/mcp-oauth-connect/#install">Install</a></li>
+      <li><a href="/products/mcp-oauth-connect/#checker">Checker</a></li>
       <li><a href="https://github.com/GFB2026/mcp-oauth-connect">GitHub</a></li>
     </ul>
-    <a class="nav-cta" href="/products/mcp-oauth-connect/">Product</a>
+    <a class="nav-cta" href="/products/mcp-oauth-connect/">Back to product</a>
   </div>
 </header>
-<main class="wrap page">
+<main id="main" class="wrap page">
   <section class="hero" aria-labelledby="thanks-title">
-    <div>
-      <p class="eyebrow">
-        <img src="mark.svg" width="36" height="36" alt="">
-        MCP OAuth Connect
-      </p>
-      <h1 id="thanks-title">Payment received.</h1>
-      <p class="lede">$149 one-time. We use the server URL from checkout. If the free check passes, you get screenshots of all four apps connected within two business days. If it fails, we quote a fix.</p>
-      <div class="cta">
-        <a class="btn btn-buy" href="https://github.com/GFB2026/mcp-oauth-connect">Free checker on GitHub</a>
-        <a class="btn btn-ghost" href="/products/mcp-oauth-connect/">Back to product</a>
-      </div>
+    <p class="eyebrow">
+      <img src="mark.svg" width="28" height="28" alt="">
+      MCP OAuth Connect
+    </p>
+    <h1 id="thanks-title">Payment received.</h1>
+    <p class="lede">$149 one-time. We use the server URL from checkout. If the free checker passes, you get screenshots of all four apps connected within two business days. If it fails, we quote a fix.</p>
+    <div class="cta">
+      <a class="btn btn-buy" href="/products/mcp-oauth-connect/">Back to product</a>
+      <a class="btn btn-ghost" href="https://github.com/GFB2026/mcp-oauth-connect">Free checker on GitHub</a>
     </div>
-    <figure class="hs is-complete" aria-label="Handshake from four hosts to an MCP resource">
+  </section>
+    <figure class="hs is-complete" aria-label="Claude, Cursor, Desktop, and Grok connecting to your server">
       <ul class="hs-clients">
         <li><span class="dot" aria-hidden="true"></span>claude.ai</li>
         <li><span class="dot" aria-hidden="true"></span>Desktop</li>
@@ -66,18 +65,15 @@
         <li><span class="dot" aria-hidden="true"></span>Grok</li>
       </ul>
       <ol class="hs-steps">
-        <li data-kind="ok"><code>GET /mcp</code></li>
-        <li data-kind="ok"><code>401</code></li>
-        <li data-kind="ok"><code>discover</code></li>
-        <li data-kind="ok"><code>sign-in</code></li>
-        <li data-kind="ok" data-on><code>connected</code></li>
+        <li data-kind="ok"><code>Ask</code></li>
+        <li data-kind="ok"><code>Sign in</code></li>
+        <li data-kind="ok" data-on><code>Connected</code></li>
       </ol>
       <div class="hs-origin">
-        <strong>/mcp</strong>
-        <span>live</span>
+        <strong>Server</strong>
+        <span>connected</span>
       </div>
     </figure>
-  </section>
 </main>
 <footer class="site-foot">
   <div class="wrap foot-inner">
@@ -90,6 +86,6 @@
     </div>
   </div>
 </footer>
-<script src="surface.js?v=2.0.0" defer></script>
+<script src="surface.js?v=2.1.0" defer></script>
 </body>
 </html>
