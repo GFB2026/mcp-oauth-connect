@@ -7,4 +7,4 @@
 - Success: https://gfbytes.com/products/mcp-oauth-connect/thank-you
 - SKU metadata: `mcp_oauth_connect`
 
-After a Stripe payment, run `python license/issue.py buyer@… 365` and paste the key into the fulfillment note. Do not add this SKU to gfb-rescue until a payer exists.
+After a Stripe payment, email the receipt address, collect the MCP URL, and attach claude.ai / Desktop / Cursor / Grok. Do not issue a moc_live_ key. Do not add this SKU to gfb-rescue.
