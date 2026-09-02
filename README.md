@@ -1,10 +1,10 @@
 # MCP OAuth Connect
 
-**Curl works. The Connectors UI does not.** This plugin diagnoses why. The scarce asset is the four-host scars FastMCP's generic DCR docs still omit, a diagnose script aimed at the Connectors UI failure mode, and proof that this provider already survives claude.ai, Desktop, Cursor, and Grok on a live origin.
+**Curl works. The Connectors UI does not.** This plugin diagnoses why.
 
-`template/` is a mechanical extract of a production connector. It is not DRM. `MCP_OAUTH_DEV=1` skips the license check. Treat a payer as a kill-rule test, not as a product line next to ILI.
+Free diagnose skill (MIT). **$149 is a four-host attach on your origin** — not a zip of `template/`.
 
-ILI / GregOps stays private. This repo has **no** host shell, mail, or student tools.
+`template/` is the public ping-only example behind `https://mcp.gfbytes.com`. It is not the paid SKU. ILI / GregOps stays private. This repo has **no** host shell, mail, or student tools.
 
 ## Install (free — diagnose skill)
 
@@ -36,24 +36,23 @@ You need:
 - No cross-host `3xx` on the MCP path
 - URL-only in the Connectors UI (no static bearer)
 
-## Paid extract (`template/`) — $149 one-time
+## Paid — four-host attach, $149 one-time
 
-Allowlist-gated OAuth provider extracted from a production connector that already survives those four hosts. Copy `template/`, set `MCP_ISSUER_URL`, run with `MCP_OAUTH_DEV=1` until you have a key (`license/`).
+You send the MCP URL. GFB makes **claude.ai, Desktop, Cursor, and Grok** Connectors attach to that origin. Fulfillment is the four hosts connecting, not a license key and not a file drop.
 
-**$149 one-time, 365-day key**, Stripe Payment Link on the existing GFB account. Not monthly. Not a Cursor Marketplace charge (Publisher Terms §3.1). Keys are issued off-catalog with `license/issue.py`.
+Stripe Payment Link on the existing GFB account. Not monthly. Not a Cursor Marketplace charge (Publisher Terms §3.1).
 
-Landing (Buy lives here): https://gfbytes.com/products/mcp-oauth-connect/
-
-The public default allowlist is slightly more Cursor-ready than production (it includes `http://localhost:8787/callback`). Auto-approve is unchanged — read `template/README.md` before wiring host tools.
+Buy: https://gfbytes.com/products/mcp-oauth-connect/
 
 ## What this is not
 
+- Not a zip of `template/`
 - Not a generic coding-skill dump
 - Not the internal `gregops-plugins` marketplace
-- Not a second bind onto `mcp.gregfredabytes.com` (that origin is the operator bus). Public proof is `https://mcp.gfbytes.com` (ping only).
-- Not a rescue/Care SKU (that map is for after a payer exists)
-- Not a second plugin, hosted diagnose tenant, or NY CE-ops pack
+- Not a second bind onto `mcp.gregfredabytes.com` (operator bus). Public proof is `https://mcp.gfbytes.com` (ping only)
+- Not a rescue/Care SKU
+- Not a Cursor Marketplace charge
 
 ## License
 
-MIT for the plugin, skill, diagnose script, and tests. `template/` is proprietary (`LICENSE-TEMPLATE`). Cursor official Marketplace, if listed, is the diagnose skill only — do not submit this dual-licensed tree as a paid plugin.
+MIT for the plugin, skill, diagnose script, tests, and `template/` example. Cursor official Marketplace, if listed, is the diagnose skill only — do not submit this tree as a paid plugin. Catalog freeze: no new catalog submissions until an attach payer exists.
