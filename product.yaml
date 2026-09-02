@@ -1,9 +1,11 @@
 slug: mcp-oauth-connect
 name: MCP OAuth Connect
 publisher: GFB
-version: "0.4.1"
-tagline: Curl works. Claude, Cursor, Desktop, and Grok still will not connect.
-lede: Your MCP server answers curl. The Connectors UI still fails. The free checker tells you why. For $149 we connect Claude, Cursor, Desktop, and Grok to your server and send you screenshots within two business days.
+version: "0.5.0"
+eyebrow: MCP connection
+h1: Four apps. Connected in two days.
+tagline: Four apps. Connected in two days.
+lede: Your MCP server answers. Claude, Cursor, Desktop, and Grok still fail in Connectors. The free checker tells you why. For $149 we connect all four from our accounts and send you screenshots within two business days.
 price_usd: 149
 price_id: price_1U9qko0hd61SUNoB2zK07NmT
 stripe_product: prod_V9pfxkWxzrujfU
@@ -13,21 +15,58 @@ demo_origin: https://mcp.gfbytes.com
 demo_mcp: https://mcp.gfbytes.com/mcp
 github: https://github.com/GFB2026/mcp-oauth-connect
 canonical: https://gfbytes.com/products/mcp-oauth-connect/
+cta_primary: Get connected — $149
+cta_secondary: Free checker
+fine: Paste your server URL at checkout. We run the free checker first.
+note: Checkout is Stripe. One payment. If the checker passes, screenshots arrive within two business days. If it fails, we quote a separate fix.
+who_title: Who you’ll work with
+who: "Greg Freda runs GFB. He also operates Insurance Licensing Institute — a NYDFS-approved school whose website, enrollments, and payments he built and keeps running. This work gets that same attention: one person, a clear deliverable, a date."
 hosts:
   - claude.ai
   - Desktop
   - Cursor
   - Grok
+process:
+  - title: Check
+    body: You paste your server URL at checkout. We run the free checker before any connection work.
+  - title: Connect
+    body: If it passes, we sign in from Claude, Cursor, Desktop, and Grok — our accounts, your server.
+  - title: Deliver
+    body: Screenshots within two business days. If the checker fails, we quote a separate fix instead.
 free:
   name: Free checker
   license: MIT
-  summary: Open source. Install it, point it at your server, see what the Connectors UI needs.
+  summary: Open source. Install it, point it at your server, and see why Connectors still fails.
 paid:
-  name: We'll connect it
+  name: Connection report
   license: service
-  summary: Paste your server URL at checkout. If the free check passes, we connect all four apps and send screenshots within two business days. If it fails, we quote a fix instead.
+  summary: Paste your server URL at checkout. If the free check passes, we connect all four apps and send screenshots within two business days.
+faq:
+  - q: What do I get?
+    a: Screenshots of Claude, Cursor, Desktop, and Grok connected to your server, within two business days. We do not change your code.
+  - q: How long does it take?
+    a: Two business days after payment, if the free checker passes on the URL you paste at checkout.
+  - q: What if the checker fails?
+    a: We tell you which check failed and quote a separate fix. The $149 report is for servers that already pass.
+  - q: Do you change my server?
+    a: No. We sign in from our accounts and send screenshots. Server changes, identity-provider setup, and hosting are not included.
+  - q: How do I pay?
+    a: On this site, through Stripe. Installing the checker from GitHub is free. This is not billed through Cursor.
 not:
   - Website design or hosting
   - Rewriting your server
   - Setting up your identity provider
   - Hosting the server for you
+gallery:
+  - file: gallery-01-hero.png
+    caption: Four apps. Connected in two days.
+  - file: gallery-02-diagnose.png
+    caption: Free checker on a public test server
+  - file: gallery-03-install.png
+    caption: Install the free checker
+  - file: gallery-04-origin.png
+    caption: Public test server
+  - file: gallery-05-offer.png
+    caption: $149 connection report · free to check
+  - file: gallery-06-cta.png
+    caption: From GFB
