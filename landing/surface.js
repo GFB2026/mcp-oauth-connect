@@ -105,7 +105,7 @@ function showProofFixture() {
   if (!pre) return;
   pre.textContent = formatReport(
     PROOF_REPORT,
-    "diagnose.py " + PROOF + "  (captured; GET/POST /mcp is CORS-blocked in the browser)"
+    "test server  " + PROOF
   );
 }
 
@@ -120,7 +120,7 @@ async function probeProof() {
     "/.well-known/oauth-protected-resource",
     "/.well-known/oauth-protected-resource/mcp"
   ];
-  const lines = ["live discovery  " + PROOF, "browser cannot read WWW-Authenticate on 401 — that is diagnose.py", ""];
+  const lines = ["test server  " + PROOF, "The browser cannot see the login header on a 401. Run the free checker for the full report.", ""];
   try {
     for (let i = 0; i < paths.length; i++) {
       const path = paths[i];
@@ -144,10 +144,10 @@ async function probeProof() {
       }
     }
     lines.push("");
-    lines.push("full checklist is " + DIAGNOSE + " " + PROOF);
+    lines.push("full check: " + DIAGNOSE + " " + PROOF);
     pre.textContent = lines.join("\n");
   } catch (err) {
-    pre.textContent = "probe failed: " + (err && err.message ? err.message : String(err)) + "\n\n" + formatReport(PROOF_REPORT, "fixture");
+    pre.textContent = "Could not reach the test server: " + (err && err.message ? err.message : String(err));
   }
   if (btn) btn.disabled = false;
 }

@@ -1,9 +1,9 @@
 slug: mcp-oauth-connect
 name: MCP OAuth Connect
 publisher: GFB
-version: "0.4.0"
-tagline: Diagnose why Claude, Cursor, and Grok MCP Connectors fail
-lede: Free diagnose. $149 four-host attach is for origins that pass diagnose.py. Deliverable is a transcript (four connected screenshots plus handshake capture). Failing origins get a quote.
+version: "0.4.1"
+tagline: Curl works. Claude, Cursor, Desktop, and Grok still will not connect.
+lede: Your MCP server answers curl. The Connectors UI still fails. The free checker tells you why. For $149 we connect Claude, Cursor, Desktop, and Grok to your server and send you screenshots within two business days.
 price_usd: 149
 price_id: price_1U9qko0hd61SUNoB2zK07NmT
 stripe_product: prod_V9pfxkWxzrujfU
@@ -19,17 +19,15 @@ hosts:
   - Cursor
   - Grok
 free:
-  name: Diagnose skill
+  name: Free checker
   license: MIT
-  summary: PRM, S256, POST /mcp, absolute resource_metadata, no cross-host 3xx. GitHub, not a marketplace charge. Attach is only for origins that pass.
+  summary: Open source. Install it, point it at your server, see what the Connectors UI needs.
 paid:
-  name: Four-host attach
+  name: We'll connect it
   license: service
-  summary: Diagnose must pass. Paste the MCP URL at checkout. GFB attaches from GFB-controlled claude.ai, Desktop, Cursor, and Grok and delivers a transcript. One round, two business days. No server changes. Fail diagnose, get a quote.
+  summary: Paste your server URL at checkout. If the free check passes, we connect all four apps and send screenshots within two business days. If it fails, we quote a fix instead.
 not:
-  - A website package
-  - Hosting or Care intake
-  - A Cursor Marketplace charge
-  - The private operator MCP bus
-  - A zip of template/
-  - Server code, IdP config, consent UI, or hosted tenancy
+  - Website design or hosting
+  - Rewriting your server
+  - Setting up your identity provider
+  - Hosting the server for you
