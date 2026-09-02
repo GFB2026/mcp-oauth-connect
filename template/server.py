@@ -1,7 +1,7 @@
 """Minimal FastMCP server with OAuth 2.0 DCR.
 
-This is the paid template. It exposes ping only — no host shell, no mail,
-no student data. Wire your own tools below the ping definition.
+Public ping-only example (not the paid SKU). Exposes ping only — no host shell,
+no mail, no student data. The $149 SKU is a diagnose-gated four-host transcript.
 
 Required env:
   MCP_ISSUER_URL   public HTTPS origin (no trailing slash), e.g. https://mcp.example.com

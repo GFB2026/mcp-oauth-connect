@@ -1,9 +1,9 @@
 slug: mcp-oauth-connect
 name: MCP OAuth Connect
 publisher: GFB
-version: "0.3.0"
+version: "0.4.0"
 tagline: Diagnose why Claude, Cursor, and Grok MCP Connectors fail
-lede: Diagnose the OAuth handshake so claude.ai, Desktop, Cursor, and Grok actually attach. Free diagnose skill. $149 is a four-host attach on your origin — not a zip of template/.
+lede: Free diagnose. $149 four-host attach is for origins that pass diagnose.py. Deliverable is a transcript (four connected screenshots plus handshake capture). Failing origins get a quote.
 price_usd: 149
 price_id: price_1U9qko0hd61SUNoB2zK07NmT
 stripe_product: prod_V9pfxkWxzrujfU
@@ -21,14 +21,15 @@ hosts:
 free:
   name: Diagnose skill
   license: MIT
-  summary: PRM, S256, POST /mcp, absolute resource_metadata, no cross-host 3xx. GitHub, not a marketplace charge.
+  summary: PRM, S256, POST /mcp, absolute resource_metadata, no cross-host 3xx. GitHub, not a marketplace charge. Attach is only for origins that pass.
 paid:
   name: Four-host attach
   license: service
-  summary: You send the MCP URL. GFB makes claude.ai, Desktop, Cursor, and Grok Connectors attach. One-time. Not a file drop.
+  summary: Diagnose must pass. Paste the MCP URL at checkout. GFB attaches from GFB-controlled claude.ai, Desktop, Cursor, and Grok and delivers a transcript. One round, two business days. No server changes. Fail diagnose, get a quote.
 not:
   - A website package
   - Hosting or Care intake
   - A Cursor Marketplace charge
   - The private operator MCP bus
   - A zip of template/
+  - Server code, IdP config, consent UI, or hosted tenancy
