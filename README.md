@@ -10,6 +10,10 @@ After the trace, **fix rounds** are quoted separately (typically $600–$1,500):
 
 Buy / fulfill: https://gfbytes.com/products/mcp-oauth-connect/
 
+On the product page, paste any public HTTPS MCP URL and hit **Check** — that hits `POST /products/diagnose` (server-side `diagnose.py`). Failures are the intended $149 buyers.
+
+Outbound targeting (no auto-send): `ph/OUTBOUND_TARGETING.md`. Harvest: `python skills/mcp-oauth-connect/scripts/harvest_failing.py`.
+
 ## Install (free checker)
 
 Claude Code:

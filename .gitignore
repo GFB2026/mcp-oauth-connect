@@ -10,3 +10,5 @@ oauth_state.json.tmp
 dist/
 build/
 .ruff_cache/
+
+data/

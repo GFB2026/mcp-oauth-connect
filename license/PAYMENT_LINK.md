@@ -1,6 +1,6 @@
 # Payment Link (seller)
 
-- Product: `prod_V9pfxkWxzrujfU` (MCP attach trace — update Stripe display name when convenient)
+- Product: `prod_V9pfxkWxzrujfU` (MCP attach trace)
 - Price: `price_1U9qko0hd61SUNoB2zK07NmT` ($149 USD one-time)
 - Link: `plink_1U9qko0hd61SUNoBxceRWZZt` https://buy.stripe.com/3cI6oz64ybZJ2dP4ev3Nm0l
 - Required field: `mcp_url` (MCP URL, text, 12–255, not optional)

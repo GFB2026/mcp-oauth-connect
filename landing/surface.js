@@ -1,5 +1,6 @@
 const PROOF = "https://mcp.gfbytes.com";
 const DIAGNOSE = "python skills/mcp-oauth-connect/scripts/diagnose.py";
+const DIAGNOSE_API = "/products/diagnose";
 
 const HOSTS = {
   claude: {
@@ -65,6 +66,14 @@ function mcpUrl() {
   return PROOF;
 }
 
+function isProofOrigin(url) {
+  try {
+    return new URL(url).origin === PROOF;
+  } catch (_err) {
+    return false;
+  }
+}
+
 function selectedHost() {
   const on = document.querySelector(".hosts button[aria-selected='true']");
   return (on && on.getAttribute("data-host")) || "claude";
@@ -88,11 +97,18 @@ function formatReport(report, liveNote) {
     const mark = c.ok ? "ok  " : "fail";
     const extra = c.status != null ? "  " + c.status : "";
     lines.push(mark + "  " + name.replace(/_/g, " ") + extra);
+    if (!c.ok && c.hint) lines.push("     " + c.hint);
   });
   (report.warnings || []).forEach(function (w) {
     lines.push("note " + w);
   });
-  lines.push(report.ok ? "ready" : "needs work");
+  if (report.ok) {
+    lines.push("ready");
+    lines.push("note checker pass ≠ Connectors attach — $149 trace still covers the handshake gap");
+  } else {
+    lines.push("needs work");
+    lines.push("note failures welcome — this is who the $149 attach trace is for");
+  }
   return lines.join("\n");
 }
 
@@ -109,14 +125,65 @@ async function probeProof() {
   const pre = document.getElementById("demo-out");
   const btn = document.getElementById("probe");
   if (!pre) return;
+  const target = mcpUrl();
   if (btn) btn.disabled = true;
-  pre.textContent = "Checking " + PROOF + " …";
+  pre.textContent = "Checking " + target + " …";
+
+  if (isProofOrigin(target)) {
+    try {
+      await probeProofOrigin(pre);
+    } finally {
+      if (btn) btn.disabled = false;
+    }
+    return;
+  }
+
+  try {
+    const res = await fetch(DIAGNOSE_API, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Accept: "application/json" },
+      body: JSON.stringify({ url: target })
+    });
+    const body = await res.json().catch(function () {
+      return {};
+    });
+    if (!res.ok) {
+      pre.textContent =
+        "Could not check that URL (" +
+        res.status +
+        "): " +
+        (body.error || "try the free checker locally") +
+        "\n\n" +
+        DIAGNOSE +
+        " " +
+        target;
+      return;
+    }
+    pre.textContent = formatReport(body, "Live check  " + target);
+  } catch (err) {
+    pre.textContent =
+      "Could not reach the checker: " +
+      (err && err.message ? err.message : String(err)) +
+      "\n\n" +
+      DIAGNOSE +
+      " " +
+      target;
+  } finally {
+    if (btn) btn.disabled = false;
+  }
+}
+
+async function probeProofOrigin(pre) {
   const paths = [
     "/.well-known/oauth-authorization-server",
     "/.well-known/oauth-protected-resource",
     "/.well-known/oauth-protected-resource/mcp"
   ];
-  const lines = ["Public test server  " + PROOF, "The browser cannot see the sign-in header on a 401. Run the free checker for the full report.", ""];
+  const lines = [
+    "Public test server  " + PROOF,
+    "The browser cannot see the sign-in header on a 401. Run the free checker for the full report.",
+    ""
+  ];
   try {
     for (let i = 0; i < paths.length; i++) {
       const path = paths[i];
@@ -144,7 +211,6 @@ async function probeProof() {
   } catch (err) {
     pre.textContent = "Could not reach the test server: " + (err && err.message ? err.message : String(err));
   }
-  if (btn) btn.disabled = false;
 }
 
 async function copyInstall() {

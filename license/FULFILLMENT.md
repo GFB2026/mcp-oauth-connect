@@ -6,7 +6,7 @@ The plugin skill, diagnose script, tests, and `template/` example are MIT. **$14
 
 ## Stripe (attach trace)
 
-- Product: `prod_V9pfxkWxzrujfU` (rename display to MCP attach trace when convenient)
+- Product: `prod_V9pfxkWxzrujfU` (display name: **MCP attach trace**)
 - Price: `price_1U9qko0hd61SUNoB2zK07NmT` ($149 USD one-time)
 - Link: `plink_1U9qko0hd61SUNoBxceRWZZt` https://buy.stripe.com/3cI6oz64ybZJ2dP4ev3Nm0l
 - Required custom field: `mcp_url` (MCP URL, 12–255 chars)
