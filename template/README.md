@@ -2,7 +2,7 @@
 
 Ping-only FastMCP server with an allowlist-gated OAuth 2.0 / DCR provider.
 
-This directory is the public ping-only example behind https://mcp.gfbytes.com. It is MIT. The **gfbytes paid offer is the connection report** (screenshots from GFB accounts), not a sale of this tree. Copy this directory to wire your own ping-only origin. Set `MCP_ISSUER_URL`. `MCP_OAUTH_DEV=1` skips any local license gate leftover from earlier packaging.
+This directory is the public ping-only example behind https://mcp.gfbytes.com. It is MIT. The **gfbytes paid offer is the attach trace** (+ quoted fix rounds), not a sale of this tree. Copy this directory to wire your own ping-only origin. Set `MCP_ISSUER_URL`. `MCP_OAUTH_DEV=1` skips any local license gate leftover from earlier packaging.
 
 ## Auto-approve residual (read this first)
 
