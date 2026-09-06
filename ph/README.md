@@ -5,7 +5,7 @@ Do **not** hunt until Greg says the date. Kit is staged so a Tuesday 12:01 PT su
 | Field | File / URL |
 |-------|------------|
 | Name | MCP OAuth Connect |
-| Tagline (60) | `TAGLINE.txt` (58 chars) |
+| Tagline (60) | `TAGLINE.txt` (33 chars) |
 | Description | `DESCRIPTION.txt` |
 | Website | https://gfbytes.com/products/mcp-oauth-connect/ |
 | Thumbnail 240×240 | `assets/mark-240.png` |
@@ -13,6 +13,6 @@ Do **not** hunt until Greg says the date. Kit is staged so a Tuesday 12:01 PT su
 | OG | `assets/og-1200x630.png` |
 | Topics | `TOPICS.txt` |
 | First comment | `FIRST_COMMENT.md` |
-| Pricing on PH | Free (diagnose). Paid extract is on-site, second CTA. |
+| Pricing on PH | Free (checker). Paid connection report is on-site, second CTA. |
 
-Hunt the diagnose job. Do not hunt “$149 FastMCP extract”.
+Hunt the diagnose / checker job. Do not hunt “$149 FastMCP extract”. The live offer is the connection report.

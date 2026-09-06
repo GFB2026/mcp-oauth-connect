@@ -1,8 +1,8 @@
-# template/ — paid FastMCP OAuth provider
+# template/ — FastMCP OAuth reference (not the $149 SKU)
 
 Ping-only FastMCP server with an allowlist-gated OAuth 2.0 / DCR provider.
 
-Copy this directory. Set `MCP_ISSUER_URL`. Run with `MCP_OAUTH_DEV=1` until you have a key.
+This directory is the public ping-only example behind https://mcp.gfbytes.com. It is MIT. The **gfbytes paid offer is the connection report** (screenshots from GFB accounts), not a sale of this tree. Copy this directory to wire your own ping-only origin. Set `MCP_ISSUER_URL`. `MCP_OAUTH_DEV=1` skips any local license gate leftover from earlier packaging.
 
 ## Auto-approve residual (read this first)
 
@@ -16,4 +16,4 @@ This template is not a substitute for a real consent UI.
 
 ## Env
 
-See `env.example`. License: `MCP_OAUTH_LICENSE_KEY` or `MCP_OAUTH_DEV=1`.
+See `env.example`. Optional local gate leftovers: `MCP_OAUTH_LICENSE_KEY` or `MCP_OAUTH_DEV=1`. Not part of the gfbytes connection-report SKU.
