@@ -1,8 +1,8 @@
 # Catalog pack — MCP OAuth Connect (diagnose origin)
 
-**FREEZE (2026-09-02):** no new catalog submissions (registry republish, Smithery, Glama, PulseMCP, Cursor, Claude directory, extra Grok PRs) until a connection-report payer exists. Live registry entry and open Grok PR #410 stay as **diagnose-only**. Paid SKU is the connection report on gfbytes.com, off-catalog.
+**FREEZE (2026-09-02):** no new catalog submissions (registry republish, Smithery, Glama, PulseMCP, Cursor, Claude directory, extra Grok PRs) until an attach-trace payer exists. Live registry entry and open Grok PR #410 stay as **diagnose-only**. Paid SKU is the attach trace (+ quoted fix rounds) on gfbytes.com, off-catalog.
 
-List the **public ping origin** and the **free diagnose / checker skill**. Do not list `template/` as a paid catalog SKU. Do not list the connection report in a first-party marketplace.
+List the **public ping origin** and the **free diagnose / checker skill**. Do not list `template/` or the attach/fix services as a paid catalog SKU.
 
 Canonical product: https://gfbytes.com/products/mcp-oauth-connect/
 Demo MCP: https://mcp.gfbytes.com/mcp

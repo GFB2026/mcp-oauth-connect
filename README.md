@@ -1,12 +1,16 @@
 # MCP OAuth Connect
 
-**Four apps. Connected in two days.**
+**Find out why four clients won't attach.**
 
-Your MCP server answers. Claude, Cursor, Desktop, and Grok still fail in Connectors. This repo is the free checker.
+The free checker reads metadata. It never finishes a handshake (no DCR, no token, no `tools/list`). That gap is the product.
 
-For $149 we connect those four apps from our accounts and send screenshots within two business days: https://gfbytes.com/products/mcp-oauth-connect/
+For **$149** we attempt Claude, Cursor, Desktop, and Grok against your server and send an **attach trace** — which step worked or died, in which client, with real responses. Failures welcome. If we can't attach and can't say why, you get your money back.
 
-## Install (free)
+After the trace, **fix rounds** are quoted separately (typically $600–$1,500): we make it attach; you merge the patch.
+
+Buy / fulfill: https://gfbytes.com/products/mcp-oauth-connect/
+
+## Install (free checker)
 
 Claude Code:
 
@@ -30,12 +34,20 @@ python skills/mcp-oauth-connect/scripts/diagnose.py https://your-mcp.example
 
 The checker looks for a proper login challenge on your server (not a 200 from curl), a registration endpoint, and S256. Paste **only the URL** in the Connectors UI — no API key.
 
-If that check fails, do not buy the $149 report. Ask for a quote instead.
+If that check fails, **that's what the $149 attach-trace round is for.**
 
-## Connection report — $149 once
+## Attach trace — $149 once
 
-Checkout asks for your server URL. If the free check passes, we connect Claude, Cursor, Desktop, and Grok and send screenshots. One pass, two business days. We do not change your server.
+Checkout asks for your server URL. We attempt all four clients and deliver a written path (401 → PRM → AS → DCR → token → `tools/list`) per client within two business days. Screenshots are evidence, not the product.
+
+## Fix round — quoted
+
+After the trace, we quote a separate fix. Not included in $149. Out of scope for the $149 round without a separate quote: Entra without DCR, custom IdPs, consent-UI flows, hosted tenancy, host tools.
+
+## `template/`
+
+Public ping-only example behind https://mcp.gfbytes.com (MIT). Reference server, not the paid SKU.
 
 ## License
 
-MIT.
+MIT for the plugin, skill, diagnose script, tests, and `template/`. The $149 offer and fix rounds are services on gfbytes.

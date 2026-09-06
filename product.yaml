@@ -1,11 +1,11 @@
 slug: mcp-oauth-connect
 name: MCP OAuth Connect
 publisher: GFB
-version: "0.5.2"
+version: "0.6.0"
 eyebrow: MCP connection
-h1: Four apps. Connected in two days.
-tagline: Four apps. Connected in two days.
-lede: Your MCP server answers. Claude, Cursor, Desktop, and Grok still fail in Connectors. The free checker tells you why. For $149 we connect all four from our accounts and send you screenshots within two business days.
+h1: Find out why four clients won't attach.
+tagline: Find out why four clients won't attach.
+lede: The free checker reads metadata. It never finishes a handshake. For $149 we attempt Claude, Cursor, Desktop, and Grok against your server and send an attach trace — which step died, in which client, with real responses. Failures welcome. If we can't attach and can't say why, you get your money back.
 price_usd: 149
 price_id: price_1U9qko0hd61SUNoB2zK07NmT
 stripe_product: prod_V9pfxkWxzrujfU
@@ -15,12 +15,16 @@ demo_origin: https://mcp.gfbytes.com
 demo_mcp: https://mcp.gfbytes.com/mcp
 github: https://github.com/GFB2026/mcp-oauth-connect
 canonical: https://gfbytes.com/products/mcp-oauth-connect/
-cta_primary: Get connected — $149
+cta_primary: Get the attach trace — $149
 cta_secondary: Free checker
-fine: Paste your server URL at checkout. We run the free checker first.
-note: Checkout is Stripe. One payment. If the checker passes, screenshots arrive within two business days. If it fails, we quote a separate fix.
+fine: Paste your server URL at checkout. Failures and unknowns are welcome — that is who this round is for.
+note: Checkout is Stripe. $149 buys the attach trace (four-client attempt + written path). Screenshots are evidence, not the product. If we can't attach and can't tell you why, refund. Fix rounds after the trace are quoted separately (typically $600–$1,500).
+refund: If we can't attach it and can't tell you exactly why, you get your money back.
 who_title: From GFB
-who: "Greg Freda founded GFB. He founded Higher Hosting — web hosting and websites — and has been building and running production systems for decades. This connection report is fulfilled on GFB’s live Claude, Cursor, Desktop, and Grok accounts."
+who: "Greg Freda founded GFB. He founded Higher Hosting — web hosting and websites — and has been building and running production systems for decades. Attach traces and fix rounds run on GFB’s live Claude, Cursor, Desktop, and Grok accounts."
+connect_lede: We attempt Claude, Cursor, Desktop, and Grok against your server. You keep the code. The deliverable is the attach trace.
+thanks_lede: $149 one-time. We use the server URL from checkout. You get an attach trace from Claude, Cursor, Desktop, and Grok within two business days — which step worked or died, per client. If we can't attach and can't say why, refund. Fix rounds are quoted after the trace.
+terms_body: The free checker on GitHub is MIT. A $149 payment buys one attach trace on your MCP server — four-client attempt plus a written path (401 → PRM → AS → DCR → token → tools/list), within two business days. Screenshots are evidence. If we cannot attach and cannot tell you why, you get a refund. Fix rounds after the trace are quoted separately and are not included in $149. Out of scope for the $149 round without a separate quote - Entra without DCR, custom identity providers, consent-UI flows, hosted tenancy, and host tools (shell, mail, files, student data). Website design, full server rewrites, and hosting are not included. You pay on this site, not through Cursor.
 hosts:
   - claude.ai
   - Desktop
@@ -28,38 +32,50 @@ hosts:
   - Grok
 process:
   - title: Check
-    body: You paste your server URL at checkout. We run the free checker before any connection work.
-  - title: Connect
-    body: If it passes, we sign in from Claude, Cursor, Desktop, and Grok — our accounts, your server.
-  - title: Deliver
-    body: Screenshots within two business days. If the checker fails, we quote a separate fix instead.
+    body: You paste your server URL. We run the free checker as a scoping step — pass or fail, the $149 round still runs.
+  - title: Attempt
+    body: We sign in from Claude, Cursor, Desktop, and Grok — our accounts, your server — including steps the free checker never reaches.
+  - title: Trace
+    body: You get a written attach trace per client. If it fails, the trace is the brief for a quoted fix round.
 free:
   name: Free checker
   license: MIT
-  summary: Open source. Install it, point it at your server, and see why Connectors still fails.
+  summary: Open source. Reads metadata. It does not finish a handshake — that gap is why the paid round exists.
 paid:
-  name: Connection report
+  name: Attach trace
   license: service
-  summary: Paste your server URL at checkout. If the free check passes, we connect all four apps and send screenshots within two business days.
+  summary: Four-client attempt plus a written path of what worked or died. Failures welcome. Refund if we can't attach and can't say why.
+quoted:
+  name: Fix round
+  license: service
+  summary: We make it attach; you merge the patch. Quoted after the trace — typically $600–$1,500.
+  price_label: Quote
 faq:
-  - q: What do I get?
-    a: Screenshots of Claude, Cursor, Desktop, and Grok connected to your server, within two business days. We do not change your code.
-  - q: How long does it take?
-    a: Two business days after payment, if the free checker passes on the URL you paste at checkout.
-  - q: What if the checker fails?
-    a: We tell you which check failed and quote a separate fix. The $149 report is for servers that already pass.
-  - q: Do you change my server?
-    a: No. We sign in from our accounts and send screenshots. Server changes, identity-provider setup, and hosting are not included.
+  - q: What do I get for $149?
+    a: An attach trace — we attempt Claude, Cursor, Desktop, and Grok against your server and write which step worked or died in each client, with real responses. Screenshots are evidence, not the product.
+  - q: Why not just run the free checker?
+    a: diagnose.py reads metadata. It never hits registration, never exchanges a code, never calls tools/list. Four real clients do things metadata cannot predict — that is what you are buying.
+  - q: What if my server already fails the checker?
+    a: Buy the trace. Failures and unknowns are the intended buyers. The checker is a scoping step, not a gate that blocks payment.
+  - q: What is a fix round?
+    a: After the trace, we quote a separate fix (typically $600–$1,500). We change what is needed so Connectors attach; you review and merge. Not included in $149.
+  - q: Do you change my server in the $149 round?
+    a: No. The trace round is read-only against your origin from our accounts. Code changes are the fix round.
+  - q: What if you cannot tell me why it failed?
+    a: You get your money back. That is on the page, not a private note.
   - q: How do I pay?
     a: On this site, through Stripe. Installing the checker from GitHub is free. This is not billed through Cursor.
 not:
+  - Entra without DCR (needs a separate quote)
+  - Custom identity providers beyond standard MCP OAuth DCR
+  - Consent-UI / interactive approval flows
+  - Hosted tenancy on our infra
+  - Host tools on your server (shell, mail, files, student data)
   - Website design or hosting
-  - Rewriting your server
-  - Setting up your identity provider
-  - Hosting the server for you
+  - A full rewrite of your server outside a quoted fix round
 gallery:
   - file: gallery-01-hero.png
-    caption: Four apps. Connected in two days.
+    caption: Find out why four clients won't attach.
   - file: gallery-02-diagnose.png
     caption: Free checker on a public test server
   - file: gallery-03-install.png
@@ -67,6 +83,6 @@ gallery:
   - file: gallery-04-origin.png
     caption: Public test server
   - file: gallery-05-offer.png
-    caption: $149 connection report · free to check
+    caption: $149 attach trace · fix rounds quoted
   - file: gallery-06-cta.png
     caption: From GFB
