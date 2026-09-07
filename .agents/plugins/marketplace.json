@@ -10,7 +10,7 @@
       "name": "mcp-oauth-connect",
       "source": ".",
       "description": "Diagnose MCP OAuth 2.0 / DCR failures for claude.ai, Desktop, Cursor, and Grok.",
-      "version": "0.2.0"
+      "version": "0.3.0"
     }
   ]
 }

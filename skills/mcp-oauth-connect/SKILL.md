@@ -20,7 +20,7 @@ Need all of:
 1. `GET /.well-known/oauth-authorization-server` → JSON with `issuer`, `authorization_endpoint`, `token_endpoint`, `registration_endpoint`, and `"code_challenge_methods_supported": ["S256"]`
 2. RFC 9728 protected-resource metadata at `/.well-known/oauth-protected-resource` **and/or** the path-appended form `/.well-known/oauth-protected-resource/mcp` (200 JSON)
 3. Unauthenticated `GET /mcp` → **401** or **405** (405 is fine; Streamable HTTP is POST)
-4. Unauthenticated `POST /mcp` → **401** with `WWW-Authenticate: Bearer ... resource_metadata=<absolute https url>`
+4. Unauthenticated `POST /mcp` → **401** with `WWW-Authenticate: Bearer ... resource_metadata=<absolute https url>`, **or** HTTP **200** JSON-RPC initialize/discover (MCP 2026-07-28 anonymous discovery; origin `/.well-known/oauth-protected-resource` must still be 200 JSON)
 5. No cross-host `3xx` on the MCP path (Authorization is dropped)
 6. User pastes **only the URL** in the Connectors UI — no token, no client_id
 
