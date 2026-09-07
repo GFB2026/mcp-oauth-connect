@@ -10,8 +10,10 @@ Checks match Anthropic's connector troubleshooting page, not merely
   - RFC 9728 protected-resource metadata (origin and/or path-appended)
   - no cross-host 3xx on the MCP path
   - unauthenticated GET /mcp is 401 or 405 (405 is fine; Streamable HTTP is POST)
-  - unauthenticated POST /mcp is 401 with WWW-Authenticate Bearer
-  - resource_metadata is an absolute HTTPS URL
+  - unauthenticated POST /mcp is either:
+      * 401 + WWW-Authenticate Bearer + resource_metadata (older clients), or
+      * 200 JSON-RPC initialize/discover result (MCP 2026-07-28 anonymous discovery)
+  - resource_metadata is an absolute HTTPS URL (401 header, else origin well-known PRM)
 """
 
 from __future__ import annotations
@@ -31,18 +33,26 @@ _RESOURCE_METADATA_RE = re.compile(
     r"resource_metadata\s*=\s*(?:\"([^\"]+)\"|'([^']+)'|([^\s,;]+))",
     re.I,
 )
-_INIT_BODY = json.dumps(
-    {
-        "jsonrpc": "2.0",
-        "id": 1,
-        "method": "initialize",
-        "params": {
-            "protocolVersion": "2025-03-26",
-            "capabilities": {},
-            "clientInfo": {"name": "mcp-oauth-connect-diagnose", "version": "0.2.0"},
-        },
-    }
-).encode("utf-8")
+
+
+def _init_body(protocol_version: str) -> bytes:
+    return json.dumps(
+        {
+            "jsonrpc": "2.0",
+            "id": 1,
+            "method": "initialize",
+            "params": {
+                "protocolVersion": protocol_version,
+                "capabilities": {},
+                "clientInfo": {"name": "mcp-oauth-connect-diagnose", "version": "0.3.0"},
+                "_meta": {"io.modelcontextprotocol/protocolVersion": protocol_version},
+            },
+        }
+    ).encode("utf-8")
+
+
+_INIT_BODY = _init_body("2025-03-26")
+_INIT_BODY_2026 = _init_body("2026-07-28")
 
 
 class _NoRedirect(urllib.request.HTTPRedirectHandler):
@@ -100,11 +110,14 @@ def _request(
     data: bytes | None = None,
     timeout: float = 12.0,
     content_type: str | None = None,
+    extra_headers: dict[str, str] | None = None,
 ) -> tuple[int, dict[str, str], bytes, str | None]:
-    headers = {"User-Agent": "mcp-oauth-connect/0.2"}
+    headers = {"User-Agent": "mcp-oauth-connect/0.3"}
+    if extra_headers:
+        headers.update(extra_headers)
     if data is not None:
         headers["Content-Type"] = content_type or "application/json"
-        headers["Accept"] = "application/json, text/event-stream"
+        headers.setdefault("Accept", "application/json, text/event-stream")
     req = urllib.request.Request(url, data=data, method=method, headers=headers)
     ctx = ssl.create_default_context()
     opener = urllib.request.build_opener(urllib.request.HTTPSHandler(context=ctx), _NoRedirect)
@@ -124,6 +137,33 @@ def _load_json(body: bytes) -> dict[str, Any]:
     except json.JSONDecodeError:
         return {}
     return data if isinstance(data, dict) else {}
+
+
+def _jsonrpc_result(body: bytes) -> dict[str, Any] | None:
+    parsed = _load_json(body)
+    if parsed.get("jsonrpc") != "2.0":
+        text = body.decode("utf-8", errors="replace") if body else ""
+        parsed = {}
+        for line in text.splitlines():
+            if line.startswith("data:"):
+                parsed = _load_json(line[5:].strip().encode("utf-8"))
+                if parsed.get("jsonrpc") == "2.0":
+                    break
+    if parsed.get("jsonrpc") != "2.0":
+        return None
+    result = parsed.get("result")
+    return result if isinstance(result, dict) else None
+
+
+def _looks_like_mcp_hello(result: dict[str, Any]) -> bool:
+    if not result:
+        return False
+    if result.get("protocolVersion") or result.get("serverInfo"):
+        return True
+    if result.get("resultType") == "complete" and result.get("supportedVersions"):
+        return True
+    caps = result.get("capabilities")
+    return isinstance(caps, dict)
 
 
 def _prm_check(url: str) -> dict[str, Any]:
@@ -228,9 +268,27 @@ def diagnose(base: str) -> dict[str, Any]:
         )
 
     get_status, get_headers, _get_body, get_loc = _request("GET", mcp_url)
-    post_status, post_headers, _post_body, post_loc = _request("POST", mcp_url, data=_INIT_BODY)
+    post_status, post_headers, post_body, post_loc = _request(
+        "POST",
+        mcp_url,
+        data=_INIT_BODY,
+        extra_headers={"MCP-Protocol-Version": "2025-03-26"},
+    )
+    post26_status, post26_headers, post26_body, post26_loc = _request(
+        "POST",
+        mcp_url,
+        data=_INIT_BODY_2026,
+        extra_headers={
+            "MCP-Protocol-Version": "2026-07-28",
+            "Mcp-Method": "initialize",
+        },
+    )
 
-    cross = _cross_host(mcp_url, get_loc) or _cross_host(mcp_url, post_loc)
+    cross = (
+        _cross_host(mcp_url, get_loc)
+        or _cross_host(mcp_url, post_loc)
+        or _cross_host(mcp_url, post26_loc)
+    )
     redirect_ok = not cross
     report["checks"]["mcp_no_cross_host_redirect"] = {
         "ok": redirect_ok,
@@ -238,6 +296,8 @@ def diagnose(base: str) -> dict[str, Any]:
         "get_location": get_loc,
         "post_status": post_status,
         "post_location": post_loc,
+        "post_2026_07_28_status": post26_status,
+        "post_2026_07_28_location": post26_loc,
         "hint": None
         if redirect_ok
         else "MCP URL 3xx to a different host drops Authorization. Register the final URL.",
@@ -258,32 +318,76 @@ def diagnose(base: str) -> dict[str, Any]:
     if not get_ok:
         report["ok"] = False
 
-    www = post_headers.get("www-authenticate") or get_headers.get("www-authenticate") or ""
-    meta = _resource_metadata_url(www)
-    post_ok = (
-        post_status == 401
-        and "bearer" in www.lower()
-        and bool(meta)
+    www = (
+        post_headers.get("www-authenticate")
+        or post26_headers.get("www-authenticate")
+        or get_headers.get("www-authenticate")
+        or ""
     )
+    meta = _resource_metadata_url(www)
+
+    challenge_ok = post_status == 401 and "bearer" in www.lower() and bool(meta)
+    if not challenge_ok and post26_status == 401:
+        www26 = post26_headers.get("www-authenticate") or ""
+        meta26 = _resource_metadata_url(www26)
+        if "bearer" in www26.lower() and meta26:
+            challenge_ok = True
+            www = www26
+            meta = meta26
+
+    hello = _jsonrpc_result(post26_body) or _jsonrpc_result(post_body)
+    anon_ok = (
+        (post26_status == 200 or post_status == 200)
+        and _looks_like_mcp_hello(hello or {})
+    )
+
+    if challenge_ok and anon_ok:
+        mode = "version_gate"
+    elif anon_ok:
+        mode = "anonymous_discovery_2026-07-28"
+    elif challenge_ok:
+        mode = "oauth_challenge"
+    else:
+        mode = "miss"
+
+    post_ok = mode != "miss"
     report["checks"]["unauthenticated_mcp_post"] = {
         "ok": post_ok,
+        "mode": mode,
         "status": post_status,
+        "status_2026_07_28": post26_status,
         "www_authenticate": www[:400],
         "resource_metadata": meta,
         "hint": None
         if post_ok
-        else "Need POST /mcp HTTP 401 plus WWW-Authenticate: Bearer ... resource_metadata=<absolute https url>. Static Authorization middleware will curl-pass and fail in Connectors UI.",
+        else "Need POST /mcp HTTP 401 plus WWW-Authenticate: Bearer ... resource_metadata=<absolute https url>, or HTTP 200 JSON-RPC initialize/discover (MCP 2026-07-28 anonymous discovery).",
     }
     if not post_ok:
         report["ok"] = False
+    elif mode == "anonymous_discovery_2026-07-28":
+        report["warnings"].append(
+            "Anonymous discovery on 2026-07-28: older clients only start OAuth on a first-POST 401. A version gate (401 for old protocolVersion, 200 for 2026-07-28) covers both."
+        )
 
-    abs_ok = bool(meta) and _is_absolute_https(meta)
+    if meta:
+        abs_ok = _is_absolute_https(meta)
+        abs_source = "www-authenticate"
+    elif anon_ok and prm_any:
+        abs_ok = True
+        abs_source = "well-known"
+        meta = (prm_origin.get("url") if prm_origin.get("ok") else None) or (
+            prm_path.get("url") if prm_path.get("ok") else None
+        )
+    else:
+        abs_ok = False
+        abs_source = None
     report["checks"]["resource_metadata_absolute"] = {
         "ok": abs_ok,
         "resource_metadata": meta,
+        "source": abs_source,
         "hint": None
         if abs_ok
-        else "resource_metadata must be an absolute HTTPS URL. Relative URLs silently kill Claude Code / Connectors discovery.",
+        else "resource_metadata must be an absolute HTTPS URL on the 401 WWW-Authenticate header, or RFC 9728 JSON at origin /.well-known/oauth-protected-resource when using anonymous discovery.",
     }
     if not abs_ok:
         report["ok"] = False
