@@ -1,10 +1,14 @@
 # MCP OAuth Connect
 
-**Four apps. Connected in two days.**
+**Free checker** for when an MCP remote answers curl but dies in Claude / Cursor / Desktop / Grok Connectors.
 
-Your MCP server answers. Claude, Cursor, Desktop, and Grok still fail in Connectors. This repo is the free checker.
+Part of GFB's lab surface. Founder / peer identity (companies run with agents): [gregfredabytes.com](https://gregfredabytes.com/) · [essay](https://gregfredabytes.com/essay/agent-operated-companies/) · [what I run](https://gregfredabytes.com/running/)
 
-For $149 we connect those four apps from our accounts and send screenshots within two business days: https://gfbytes.com/products/mcp-oauth-connect/
+The free checker reads metadata. It does not finish a handshake (no DCR, no token, no `tools/list`). That gap is real — treat a fail as a scoping signal, not a dead end.
+
+Optional paid attach lab (four-client attempt + written path) lives on the studio product page, not here: https://gfbytes.com/products/mcp-oauth-connect/
+
+On that page you can also paste a public HTTPS MCP URL and hit **Check** (`POST /products/diagnose`).
 
 ## Install (free)
 
@@ -28,14 +32,12 @@ Then:
 python skills/mcp-oauth-connect/scripts/diagnose.py https://your-mcp.example
 ```
 
-The checker looks for a proper login challenge on your server (or MCP 2026-07-28 anonymous discovery), a registration endpoint, and S256. Paste **only the URL** in the Connectors UI — no API key.
+Looks for a proper login challenge (not a bare 200 from curl), a registration endpoint, and S256. Paste **only the URL** in the Connectors UI — no API key.
 
-If that check fails, do not buy the $149 report. Ask for a quote instead.
+## `template/`
 
-## Connection report — $149 once
-
-Checkout asks for your server URL. If the free check passes, we connect Claude, Cursor, Desktop, and Grok and send screenshots. One pass, two business days. We do not change your server.
+Public ping-only example behind https://mcp.gfbytes.com (MIT). Reference server, not a service SKU.
 
 ## License
 
-MIT.
+MIT for the plugin, skill, diagnose script, tests, and `template/`. Studio attach-lab / fix-round services are separate offers on gfbytes.com.
