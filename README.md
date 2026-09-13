@@ -25,7 +25,7 @@ Paste **only the URL** in a Connectors UI — no API key.
 
 ## Clone / run
 
-Stdlib Python. No install for the checker:
+Stdlib Python ≥3.10. No install for the checker:
 
 ```bash
 git clone https://github.com/GFB2026/mcp-oauth-connect.git
