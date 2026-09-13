@@ -1,0 +1,30 @@
+name: Copilot Setup Steps
+
+# Coding-agent environment only. Public CI stays in tests.yml.
+# Path-filter so this does not re-run pytest on every push.
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - .github/workflows/copilot-setup-steps.yml
+  pull_request:
+    paths:
+      - .github/workflows/copilot-setup-steps.yml
+
+jobs:
+  # The job MUST be called `copilot-setup-steps` or Copilot ignores this file.
+  copilot-setup-steps:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # Editable install of this repo fails (flat-layout / no package).
+      # The [dev] extra in pyproject.toml is pytest>=8.
+      - name: Install test dependencies
+        run: python -m pip install "pytest>=8"
