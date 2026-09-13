@@ -1,16 +1,50 @@
 # MCP OAuth Connect
 
-**Free checker** for when an MCP remote answers curl but dies in Claude / Cursor / Desktop / Grok Connectors.
+[![tests](https://github.com/GFB2026/mcp-oauth-connect/actions/workflows/tests.yml/badge.svg)](https://github.com/GFB2026/mcp-oauth-connect/actions/workflows/tests.yml)
 
-Part of GFB's lab surface. Founder / peer identity (companies run with agents): [gregfredabytes.com](https://gregfredabytes.com/) · [essay](https://gregfredabytes.com/essay/agent-operated-companies/) · [what I run](https://gregfredabytes.com/running/)
+**Free checker** for when an MCP remote answers `curl` but dies in Claude / Cursor / Desktop / Grok Connectors.
 
-The free checker reads metadata. It does not finish a handshake (no DCR, no token, no `tools/list`). That gap is real — treat a fail as a scoping signal, not a dead end.
+| | |
+|---|---|
+| **Live checker** | [check.gfbytes.com](https://check.gfbytes.com/) |
+| **This repo** | CLI `diagnose.py` + plugin / skill |
+| **Web UI** | [`mcp-gfbytes`](https://github.com/GFB2026/mcp-gfbytes) |
+| **Demo MCP** | `https://mcp.gfbytes.com` |
 
-Optional paid attach lab (four-client attempt + written path) lives on the studio product page, not here: https://gfbytes.com/products/mcp-oauth-connect/
+Part of GFB's lab surface. Founder / peer identity: [gregfredabytes.com](https://gregfredabytes.com/) · [essay](https://gregfredabytes.com/essay/agent-operated-companies/) · [what I run](https://gregfredabytes.com/running/)
 
-On that page you can also paste a public HTTPS MCP URL and hit **Check** (`POST /products/diagnose`).
+![Diagnose output](landing/gallery-02-diagnose.png)
 
-## Install (free)
+## What this is not
+
+- **Not a hosted MCP product.** `https://mcp.gfbytes.com` is a ping-only reference server.
+- **Not a completed handshake.** The checker reads discovery metadata. It does not do DCR, mint a token, or call `tools/list`. A fail is a scoping signal, not a dead end.
+- **Not the paid attach lab.** Four-client attempt + written path lives on [the studio product page](https://gfbytes.com/products/mcp-oauth-connect/).
+
+Paste **only the URL** in a Connectors UI — no API key.
+
+## Clone / run
+
+Stdlib Python. No install for the checker:
+
+```bash
+git clone https://github.com/GFB2026/mcp-oauth-connect.git
+cd mcp-oauth-connect
+python skills/mcp-oauth-connect/scripts/diagnose.py https://mcp.gfbytes.com
+```
+
+Exit 0 if connector-critical checks pass; 1 otherwise. JSON report on stdout.
+
+Looks for a proper login challenge (not a bare 200 from curl), a registration endpoint, PKCE S256, and RFC 9728 protected-resource metadata.
+
+Tests:
+
+```bash
+python -m pip install "pytest>=8"
+python -m pytest
+```
+
+## Plugin install (optional)
 
 Claude Code:
 
@@ -26,13 +60,7 @@ grok plugin marketplace add GFB2026/mcp-oauth-connect
 grok plugin install mcp-oauth-connect --trust
 ```
 
-Then:
-
-```bash
-python skills/mcp-oauth-connect/scripts/diagnose.py https://your-mcp.example
-```
-
-Looks for a proper login challenge (not a bare 200 from curl), a registration endpoint, and S256. Paste **only the URL** in the Connectors UI — no API key.
+Then run the same `diagnose.py` path as above.
 
 ## `template/`
 
