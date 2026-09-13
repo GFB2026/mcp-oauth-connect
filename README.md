@@ -44,6 +44,11 @@ python -m pip install "pytest>=8"
 python -m pytest
 ```
 
+## For AI assistants / contributors
+
+Edit lanes and hard stops: `.github/copilot-instructions.md`.
+Verify with `python -m pytest` (install `pytest>=8`; this tree is flat — no `pip install -e`).
+
 ## Plugin install (optional)
 
 Claude Code:
